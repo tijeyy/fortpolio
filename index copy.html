@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>forfolio</title>
+  <link href="/src/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="oxanium bg-black text-red-500 overflow-hidden scanlines noise">
+<div class="hud-line hud-left"></div>
+<div class="hud-line hud-right"></div>
+<!-- ============ SPLASH ============= -->
+<section id="splash" class="fixed bg-black inset-0 z-50 flex justify-center items-center scanlines noise boot-flicker fade-out">
+
+  <div class="flex flex-col items-center space-y-14">
+
+    <!-- LOAD SECTION -->
+    <div class="relative w-xl max-w-4xl px-6">
+      <!-- left float -->
+      <div class="absolute -left-8 top-1/2 -translate-y-1/2 space-y-4 animate-float">
+        <div class="relative w-3 h-3 border border-red-500">
+          <div class="bg-red-500 w-1 h-1 -translate-4"></div>
+        </div>
+        <!-- line (-|) -->
+        <div class="relative bg-red-500 w-1 h-6">
+          <div class="absolute bg-red-500 w-10 h-[2px] top-1/2 right-full -translate-y-1/2"> ... </div>
+        </div>
+        <div class="relative w-2 h-2 bg-red-500">
+          <div class="w-4 h-2 border border-red-500 -translate-x-5 translate-y-5">~</div>
+        </div>
+      </div>
+
+      <!-- right float -->
+      <div class="absolute -right-12 top-1/2 -translate-y-1/2 space-y-4 animate-float">
+        <div class="relative w-3 h-3 border border-red-500">
+          <div class="bg-red-500 w-1 h-1 -translate-4 -translate-x-[-22px]">~</div>
+        </div>
+        <!-- line (|-) -->
+        <div class="relative bg-red-500 w-1 h-6">
+          <div class="absolute bg-red-500 w-10 h-[2px] top-1/2 left-full"></div>
+        </div>
+        <div class="w-2 h-2 bg-red-500">
+          <div class="w-4 h-2 border border-red-500 translate-x-5 translate-y-5">...</div>
+        </div>
+      </div>
+
+      <!-- loading text and % count -->
+      <div class="flex justify-between text-xs mb-4">
+        <span class="tracking-widest text-violet-500">INITIALIZING INTERFACE ...</span>
+        <span id="percent" class="tracking-widest text-violet-500">0%</span>
+      </div>
+      <!-- loading bar -->
+      <div class="w-full h-2 bg-red-900/30 overflow-hidden">
+        <div id="loadbar" class="h-full bg-gradient-to-r from-red-500 to-violet-700"></div>
+      </div>
+
+      <div class="text-xs text-center tracking-widest text-red-400 mt-6 animate-glitch">
+        SYNCING DATA STREAMS
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<div id="app" class="opacity-0 pointer-events-none text-red-400
+                      transition-opacity scanlines noise  duration-700">
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar"
+  class="fixed top-0 left-0 w-full bg-black/80 backdrop-blur border-b border-red-900
+         opacity-0 pointer-events-none transition-all duration-500 z-40">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <span class="text-white tracking-widest text-sm">TIJEY</span>
+    <div class="text-xs tracking-widest text-violet-500">
+      <a href="#about">ABOUT</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============ WELCOME ============ -->
+
+<section id="welcome" class="relative h-screen flex flex-col items-center justify-center text-center px-6">
+  <div class="text-center space-y-6">
+    <h1 class="text-white text-5xl tracking-widest font-bold animate-glitch"> TRISHIA JANE JAVIER </h1>
+    <p class="text-sm md:text-base tracking-widest text-violet-500"> Welcome to my portfolio website! </p>
+
+    <div class="mt-10 text-xs tracking-widest text-red-400">
+      SCROLL THROUGH ↓
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTENT ============ -->
+<div class="max-w-6xl mx-auto relative px-4 md:px-8 py-12">
+
+  <!-- HERO / ABOUT -->
+  <section id="about"
+    class="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-20 items-center reveal opacity-0 transition-opacity">
+    <div class="lg:col-span-2 space-y-6">
+      <h2 class="text-3xl md:text-7xl font-bold tracking-widest neon text-white">
+        HI, I'M <span class="text-violet-400">TRISHIA</span>
+      </h2>
+
+      <p class="max-w-xl leading-relaxed">
+        Computer Engineering student focused on
+        <span class="text-white">Frontend Development and UI/UX Design</span>. I love creating
+        visually appealing and user-friendly digital experiences.
+      </p>
+
+      <a href="#" class="flex gap-3 border border-red-500 rounded-xl px-6 py-3 text-sm 
+                  tracking-widest glass-hover hover:text-violet-500 transition">
+        DOWNLOAD CV <i data-lucide="download" class="w-4 h-4"></i>
+      </a>
+    </div>  
+    
+    <!-- PROFILE CARD (right) -->
+    <div class="glass rounded-3xl p-8 text-center">
+      <img src="" class="w-32 h-32 mx-auto rounded-full border-2 border-red-500 mb-6">
+      <h3 class="font-bold text-xl text-white neon">TRISHIA JANE JAVIER</h3>
+      <p class="text-xs mb-4">Computer Engineering Student</p>
+
+      <div class="flex justify-center gap-4">
+        <a href="" class="p-2 border border-red-500 hover:bg-red-400/20 rounded-md"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+        <a href="" class="p-2 border border-red-500 hover:bg-red-400/20 rounded-md"><i data-lucide="github" class="w-4 h-4"></i></a>
+        <a href="" class="p-2 border border-red-500 hover:bg-red-400/20 rounded-md"><i data-lucide="briefcase" class="w-4 h-4"></i></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION & EXPERIENCE -->
+  <section class="mb-24 reveal opacity-0 transition-opacity">
+    <div class="flex items-center gap-4 mb-10">
+      <h2 class="text-3xl tracking-widest text-white neon flex items-center gap-3">
+        <i data-lucide="graduation-cap"></i>
+        EDUCATION & EXPERIENCE
+      </h2>
+      <div class="divider flex-1"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- EDUCATION -->
+      <div class="glass rounded-2xl p-6">
+        <h3 class="text-xl mb-4 text-violet-500 tracking-widest neon">
+          EDUCATION
+        </h3>
+
+        <div class="relative space-y-6 border-l-2 border-red-700 pl-6">
+
+          <div class="space-y-1 relative">
+            <div class="absolute -left-8 top-1 w-4 h-4 rounded-full bg-red-700"></div>
+            <h4 class="text-gray-400 font-bold">
+              BACHELOR OF SCIENCE IN COMPUTER ENGINEERING
+            </h4>
+            <p class="text-violet-400 text-sm">
+              San Sebastian College-Recoletos de Cavite
+            </p>
+            <p class="text-sm">
+              2021 - Present
+            </p>
+          </div>
+          
+          <div class="space-y-1 relative">
+            <div class="absolute -left-8 top-1 w-4 h-4 rounded-full bg-gray-400"></div>
+            <h4 class="text-gray-400 font-bold">
+              ICT in MOBOLE APP AND WEB DEVELOPMENT
+            </h4>
+            <p class="text-violet-400 text-sm">
+              STI College Rosario
+            </p>
+            <p class="text-sm">
+              2019 - 2021
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="glass rounded-2xl p-8">
+        <h3 class="text-xl mb-4 text-violet-500 tracking-widest neon">
+          EXPERIENCE
+        </h3>
+
+        <div class="space-y-6 border-l border-red-700 pl-6">
+          <div class="space-y-1 relative">
+            <div class="absolute -left-8 top-1 w-4 h-4 rounded-full bg-red-700"></div>
+            <h4 class="text-gray-400 font-bold">
+              DESIGN PROJECT PROTOTYPE
+            </h4>
+            <p class="text-violet-400 text-sm">
+              San Sebastian College-Recoletos de Cavite
+            </p>
+            <p class="text-sm">
+              JUNE 2025 - DECEMBER 2025
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS & SKILLS & CONTACT -->
+  <section class="mb-24 reveal opacity-0 transition-opacity">
+    <div class="flex items-center gap-6 mb-10">
+      <h2 class="text-3xl tracking-widest text-white neon flex items-center gap-3">
+        <i data-lucide="layers"></i> PROJECTS & SKILLS</h2>
+      <div class="divider flex-1"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- PROJECTS -->
+      <div class="grid lg:col-span-9 md:grid-cols-2 gap-6" id="projects">
+        <div class="glass rounded-2xl p-6 cursor-pointer glass-hover" onclick="openProject(0)">
+          <div class="bg-red-900/20 h-48 rounded-xl mb-6"></div>
+          <h3 class="text-xl text-violet-400 neon">PROJECT NAME</h3>
+          <p class="text-sm mb-4 text-white">
+            Project description
+          </p>
+          <div class="flex gap-2 text-xs">
+            <span class="border border-red-500 px-3 py-1">tech used</span>
+            <span class="border border-violet-500 px-3 py-1">tech used</span>
+            <span class="border border-orange-500 px-3 py-1">tech used</span>
+          </div>
+        </div>
+
+        <!-- other projects -->
+      </div>
+
+      <!-- SKILLS -->
+      <div class="lg:col-span-3 space-y-6">
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-violet-500 mb-4 text-xl neon flex items-center gap-3">
+            <i data-lucide="code"></i> SKILLS</h3>
+          <div class="space-y-2 text-sm">
+            <span class="border border-red-500 p-2 inline-block">HTML</span>
+            <span class="border border-red-500 p-2 inline-block">CSS</span>
+            <span class="border border-red-500 p-2 inline-block">JavaScript</span>
+            <span class="border border-red-500 p-2 inline-block">React</span>
+            <span class="border border-red-500 p-2 inline-block">Tailwind CSS</span>
+          </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="glass rounded-2xl p-6 space-y-1" id="contact">
+          <h3 class="text-violet-500 mb-4 text-xl neon flex items-center gap-3">
+            <i data-lucide="mail"></i> CONTACT</h3>
+          <a href="mailto:email@gmail.com" class="contact-item py-1 text-sm rounded hover:text-violet-400 hover:neon transition cursor-pointer">
+            <strong>EMAIL: </strong> email@gmail.com
+          </a>
+          <a href="tel:+1234567890" class="contact-item py-1 text-sm rounded hover:text-violet-400 hover:neon transition cursor-pointer">
+            <strong>PHONE: </strong> (123) 456-7890
+          </a>
+          <div class="contact-item py-1 text-sm">
+            <strong>LOCATION: </strong> Cavite, Philippines
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <p class="text-center">
+    SYSTEM ONLINE ~ TRISHIA @ 2026
+  </p>
+
+</div>
+
+<!-- ========== PROJECT MODAL ========== -->
+<div id="projectModal" 
+  class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center backdrop-blur">
+  <div class="glass relative max-w-4xl mx-auto mt-20 p-8 w-[90%] animate-modal">
+    <button onclick="closeProject(1)" class="absolute top-4 right-4 cursor-pointer">✕</button>
+    <h2 id="modalTitle" class="text-2xl text-violet-400 neon mb-4 tracking-widest"></h2>
+    <p id="modalDesc" class="text-sm text-gray-400 leading-relaxed"></p>
+
+    <div class="mt-6">
+      <a id="projLink" class="border border-red-500 px-4 py-2 text-xs hover:border-violet-500 transition">OPEN SITE</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  lucide.createIcons();
+  let percent = 0;
+  const percentEl = document.getElementById('percent');
+  const loadbarEl = document.getElementById('loadbar');
+  const splash = document.getElementById('splash');
+  const app = document.getElementById('app');
+
+  const interval = setInterval(() => {
+    percent++;
+    percentEl.textContent = percent + '%';
+    loadbarEl.style.width = percent + '%';
+
+    if (percent >= 100) {
+      clearInterval(interval);
+      splash.classList.add('fade-out');
+      setTimeout(() => {
+        splash.remove();
+        app.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.classList.remove('overflow-hidden');
+      }, 300); 
+    }
+  }, 20); 
+
+  const hudLeft = document.querySelector('.hud-left');
+  const hudRight = document.querySelector('.hud-right');
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    hudLeft.style.transform = `translateY(${y * 0.2}px)`;
+    hudRight.style.transform = `translateY(${y * 0.35}px)`;
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  reveals.forEach(el => observer.observe(el));
+
+  const navbar = document.getElementById('navbar');
+  const welcome = document.getElementById('welcome');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > welcome.offsetHeight - 100) {
+      navbar.classList.remove('opacity-0', 'pointer-events-none');
+    } else {
+      navbar.classList.add('opacity-0', 'pointer-events-none');
+    }
+  });
+
+  document.querySelectorAll('.contact-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const text = item.textContent.split(': ')[1];
+      navigator.clipboard.writeText(text).then(() => {
+        const original = item.textContent;
+        setTimeout(() => {
+        item.textContent = 'COPIED TO CLIPBOARD!';
+          item.textContent = original, 1000;
+        });
+      });
+    });
+  });
+
+
+  const modal = document.getElementById('projectModal');
+  const projects = [
+    {
+      title: 'PROJECT NAME',
+      desc: 'Detailed project description goes here.',
+      projLink: "#",
+    },
+  ];
+    
+  function openProject(index) {
+    const p = projects[index];
+    document.getElementById('modalTitle').textContent = p.title;
+    document.getElementById('modalDesc').textContent = p.desc;
+    document.getElementById('projLink').href = p.projLink;
+    document.getElementById('projectModal').classList.remove('hidden');
+    
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  }
+
+  function closeProject() {
+    modal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
+</script>
+
+</div>
+</body>
+</html>
