@@ -15,9 +15,9 @@ h1, h2, h3, h4, .anton {
   left: 0; right: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.2rem 8rem !important;
+  padding: 0.8rem 1rem !important;
   background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   animation: slideDown 0.5s ease;
 }
@@ -59,3 +59,10 @@ nav a:hover::after {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Responsive adjustments */
+
+@media (min-width: 768px) {
+  .sticky-nav {
+    padding: 1.2rem 8rem !important;
+  }
+}

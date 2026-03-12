@@ -15,20 +15,24 @@
 
 <body class="bg-black text-[#D9D9D9]">
   <!-- ============ TOP / WELCOME SECTION ============= -->
-  <section class="bg-black border-t border-r border-l border-white/30 rounded-3xl mx-18 my-8 px-6 overflow-hidden 
-      relative flex flex-col min-h-[80vh]">
+  <section class="bg-black border-t border-r border-l border-white/30 rounded-3xl mx-4 my-4 md:mx-18 md:my-8 px-4 md:px-6 overflow-hidden 
+      relative flex flex-col min-h-[90vh]">
     <!-- navbar -->
-    <nav id="navbar" class="flex items-center justify-between py-8 px-8 z-50">
-      <span class="anton bg-black border border-[#8528D9] text-[#C77DFF] shadow-[0_3px_5px_#757575] text-xs font-bold px-10 py-3 rounded-full tracking-widest">TIJEY</span>
-      <div class="bg-black border border-white/80 h-12 w-full max-w-2xl text-white shadow-[0_5px_5px_#757575] flex justify-around items-center gap-10 px-6 py-2 rounded-full text-xs tracking-widest">
-        <span class="w-2 h-2 rounded-full bg-white"></span>
-        <a href="#home" class="anton px-2">HOME</a>
-        <a href="#about" class="anton px-2">ABOUT</a>
-        <a href="#projects" class="anton px-2">PROJECTS</a>
-        <a href="#contact" class="anton px-2">CONTACT</a>
-        <span class="w-2 h-2 rounded-full bg-white"></span>
+    <nav id="navbar" class="flex flex-col md:flex-row items-center justify-between py-8 px-8 z-50">
+      <span class="anton bg-black border border-[#8528D9] text-[#C77DFF] shadow-[0_3px_5px_#757575]
+            text-xs font-bold px-10 py-3 rounded-full tracking-widest">TIJEY</span>
+      
+      <div class="bg-black border border-white/80 h-10 md:h-12 w-full max-w-2xl text-white shadow-[0_5px_5px_#757575] overflow-hidden
+              flex justify-around items-center gap-2 md:gap-10 px-4 md:px-6 py-2 rounded-full text-[9px] md:text-xs tracking-widest">
+        <span class="hidden md:inline w-2 h-2 rounded-full bg-white"></span>
+        <a href="#home" class="anton px-1 md:px-2">HOME</a>
+        <a href="#about" class="anton px-1 md:px-2">ABOUT</a>
+        <a href="#projects" class="anton px-1 md:px-2">PROJECTS</a>
+        <a href="#contact" class="anton px-1 md:px-2">CONTACT</a>
+        <span class="hidden md:inline w-2 h-2 rounded-full bg-white"></span>
       </div>
-      <div class="flex gap-4">
+
+      <div class="hidden md:flex gap-4">
         <button class="w-10 h-10 rounded-full shadow-[0_3px_5px_#757575] flex items-center justify-center text-white text-xs
               hover:scale-110 hover:text-purple-300 transition duration-300">
               <a href="https://github.com/tijeyy" target="_blank">
@@ -42,10 +46,10 @@
       </div>
     </nav>
 
-    <div id="home" class="flex items-center justify-around gap-8 mb-6 pt-10">
+    <div id="home" class="flex flex-col lg:flex-row items-center justify-around gap-12 mb-10 pt-6 md:pt-10">
       <!-- LEFT -->
-      <div class="w-100 space-y-4 pt-2 px-8">
-        <div class="flex items-center gap-3 mb-4">
+      <div class="w-full lg:w-1/2 space-y-6 pt-2 px-8 md:px-8 order-2 lg:order-1 text-center lg:text-left">
+        <div class="flex items-center justify-center lg:justify-start gap-3 mb-4">
           <span class="relative flex h-3 w-3">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
@@ -54,23 +58,23 @@
             Status: Open for Internships  Portfolio_v1.0.exe
           </p>
         </div>
-        <h2 class="text-2xl uppercase leading-tight">Driven by curiosity, defined by the systems I build</h2>
+        <h2 class="text-3xl md:text-5xl uppercase leading-tight tracking-tight">
+          Driven by curiosity, <br class="hidden md:block">defined by the systems I build</h2>
         <p class="text-sm leading-relaxed">
           Computer Engineering student with a passion for technology.
         </p>
-        <p class="text-sm leading-relaxed mb-8">
+        <p class="text-sm md:text-base leading-relaxed max-w-md mx-auto lg:mx-0">
           Currently exploring the intersection of web development and system design, with a focus on creating intuitive and visually appealing user interfaces. 
         </p>
         <a class="anton bg-black shadow-[0_2px_5px_#C77DFF] text-xs mt-4 px-12 py-3 rounded-full tracking-widest uppercase
-          hover:scale-105 hover:text-purple-300 transition duration-300">
+          hover:scale-105 hover:text-purple-300 transition duration-300 cursor-pointer">
           VIEW CV
         </a>
       </div>
 
     <!-- RIGHT -->
-    <div class="relative group w-full max-w-sm h-75">
-      <div class="relative w-full h-full bg-[#1a1a1a] border border-white/20 rounded-2xl p-6 shadow-2xl transition-all duration-500 
-              hover:shadow-[#9639D9]/20 group-hover:rotate-1">
+    <div class="relative group w-full max-w-[340px] md:max-w-sm px-4 order-1 lg:order-2">
+      <div class="relative w-full bg-[#1a1a1a] border border-white/20 rounded-2xl p-6 shadow-2xl transition-all duration-500 hover:shadow-[#9639D9]/20 group-hover:rotate-1">
 
       <!-- id top header -->
         <div class="flex justify-between items-start mb-6">
@@ -90,12 +94,12 @@
         <div class="flex gap-6 items-center">
           <div>
             <img src="src/me.jpg" alt="" 
-                class="id-photo w-28 h-36 rounded-lg">
+                class="id-photo w-24 h-32 md:w-28 md:h-36 rounded-lg">
           </div>
 
           <div class="space-y-4 flex-1">
             <div>
-              <p class="uppercase tracking-widest text-[10px] text-white/40 font-bold">Surname / Name</p>
+              <p class="uppercase tracking-widest text-[8px] text-white/40 font-bold">Surname / Name</p>
               <p class="anton uppercase tracking-wide text-sm">Javier, Trishia Jane</p>
             </div>
             <div>
@@ -124,15 +128,15 @@
 
     </div>
 
-    <h1 class="text-center mt-10 text-[60px] md:text-[100px] lg:text-[130px] text-[#8528D9] uppercase leading-none tracking-tighter">
+    <h1 class="opacity-80 text-center text-[60px] md:text-[100px] lg:text-[130px] text-[#8528D9] mb-[-10px] md:mb-[-20px] uppercase leading-none tracking-tighter">
       MY PORTFOLIO
     </h1> 
   </section>
 
   <!-- =============== ABOUT SECTION ============== -->
-  <section id="about" class="mx-auto max-w-7xl px-6 py-20 gap-20 flex flex-col lg:flex-row justify-center items-start reveal">
+  <section id="about" class="mx-auto max-w-7xl px-6 py-20 gap-20 flex flex-col lg:flex-row justify-center items-center lg:items-start reveal">
 
-    <div id="desc" class="w-full max-w-lg space-y-10">
+    <div id="desc" class="w-full max-w-lg space-y-6 md:space-y-10">
       <div>
         <h2 class="uppercase text-5xl md:text-6xl font-light">meet her!</h2>
         
@@ -160,8 +164,8 @@
 
       <!-- SKILLS -->
       <div id="skills">
-        <h3 class="text-[#C77DFF] text-2xl uppercase mb-6 pt-8 tracking-widest">Skills</h3>
-        <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 text-center">
+        <h3 class="text-[#C77DFF] text-xl md:text-2xl uppercase mb-6 pt-8 tracking-widest">Skills</h3>
+        <div class="grid grid-cols-5 gap-5 justify-items-center">
           
           <i class="fa-brands fa-html5 text-5xl mb-4 text-orange-500"></i>
           <i class="fa-brands fa-css3-alt text-5xl mb-4 text-blue-500"></i>
@@ -254,7 +258,7 @@
           Developed a responsive website for Lumina Alert, a disaster preparedness and response system. 
           Implemented features such as real-time alerts, interactive maps, and resource management using HTML, CSS, and JavaScript.
         </p>
-        <div class="flex gap-2 mt-4 text-purple-400">
+        <div class="flex flex-wrap gap-2 mt-4 text-purple-400">
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">HTML</span>
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">CSS</span>
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">JavaScript</span>
@@ -272,7 +276,7 @@
           Integrated sensor data visualization and user-friendly controls to optimize water usage for agriculture.
           Designed user interface and implemented core features using MIT App Inventor.
         </p>
-        <div class="flex gap-2 mt-4 text-purple-400 items-center">
+        <div class="flex flex-wrap gap-2 mt-4 text-purple-400 items-center">
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">MIT App Inventor</span>
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">IoT</span>
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">Arduino</span>
@@ -290,7 +294,7 @@
           A full-stack web application for managing laboratory inventory and equipment.
           Features a real-time Firebase backend for data storage and synchronization, allowing users to track inventory levels, manage equipment checkouts, and generate reports.
         </p>
-        <div class="flex gap-2 mt-4 text-purple-400">
+        <div class="flex flex-wrap gap-2 mt-4 text-purple-400">
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">HTML</span>
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">CSS</span>
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">JavaScript</span>
@@ -307,7 +311,7 @@
         <p class="text-xs text-white/70 leading-relaxed mt-2">
           IoT-enabled smart outlet simulation system that allows users to control the power for multiple sockets—either manually or automatically (timed)—and monitor outlet status (active/inactive)
         </p>
-        <div class="flex gap-2 mt-4 text-purple-400">
+        <div class="flex flex-wrap gap-2 mt-4 text-purple-400">
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">HTML</span>
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">JavaScript</span>
           <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">Firebase</span>
