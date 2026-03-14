@@ -13,13 +13,13 @@
   <script type="module" src="/src/main.js"></script>
 </head>
 
-<body class="bg-black text-[#D9D9D9]">
+<body class="text-[#D9D9D9]">
   <!-- ============ TOP / WELCOME SECTION ============= -->
   <section class="bg-black border-t border-r border-l border-white/30 rounded-3xl mx-4 my-4 md:mx-18 md:my-8 px-4 md:px-6 overflow-hidden 
       relative flex flex-col min-h-[90vh]">
     <!-- navbar -->
     <nav id="navbar" class="flex flex-col md:flex-row items-center justify-between py-8 px-8 z-50">
-      <span class="anton bg-black border border-[#8528D9] text-[#C77DFF] shadow-[0_3px_5px_#757575]
+      <span class="anton bg-black border border-[#8528D9] text-[#C77DFF] shadow-[0_3px_5px_#8528D9] uppercase
             text-xs font-bold px-10 py-3 rounded-full tracking-widest">TIJEY</span>
       
       <div class="bg-black border border-white/80 h-10 md:h-12 w-full max-w-2xl text-white shadow-[0_5px_5px_#757575] overflow-hidden
@@ -68,7 +68,7 @@
         </p>
         <a href="src/JAVIER,TRISHIA_RESUME.pdf" target="_blank" rel="noopener noreferrer" 
           class="anton bg-black shadow-[0_2px_5px_#C77DFF] text-xs mt-4 px-12 py-3 rounded-full tracking-widest uppercase
-          hover:scale-105 hover:text-purple-300 transition duration-300 cursor-pointer">
+          inline-block hover:scale-105 hover:text-purple-300 transition duration-300 cursor-pointer">
           VIEW CV
         </a>
       </div>
@@ -249,11 +249,11 @@
     
     <div class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 py-10 gap-8">
 
-      <div onclick="openProject('lumina')" class="bg-gray border border-white/30 rounded-xl p-6 shadow-[0_2px_5px_#8528D9] cursor-pointer hover:border-purple-500 transition-all group">
-        <div class="overflow-hidden rounded-lg mb-8">
-          <img src="src/lumina-welcome.jpg" alt="Lumina" class="h-50 w-full border border-white object-cover group-hover:scale-110 transition duration-500">
+      <div onclick="openProject('lumina')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_#8528D9] transition-all group">
+        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">
+          <img src="src/lumina-welcome.jpg" alt="Lumina" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
         </div>
-        <h2 class="text-2xl text-white uppercase">Lumina Alert Website</h2>
+        <h2 class="text-2xl text-white uppercase group-hover:text-[#8528D9] transition-colors">Lumina Alert Website</h2>
         <i class="fas fa-user text-[#8528D9] text-xs">Group Project</i>
         <p class="text-xs text-white/70 leading-relaxed mt-2">
           Developed a responsive website for Lumina Alert, a disaster preparedness and response system. 
@@ -266,11 +266,11 @@
         </div>
       </div>
 
-      <div onclick="openProject('irrigation')" class="bg-gray border border-white/30 rounded-xl p-6 shadow-[0_2px_5px_#8528D9] cursor-pointer hover:border-purple-500 transition-all group">
-        <div class="overflow-hidden rounded-lg mb-8">        
-          <img src="src/iot.jpg" alt="IoT" class="h-50 w-full border border-white object-cover group-hover:scale-110 transition duration-500">
+      <div onclick="openProject('irrigation')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_#8528D9] transition-all group">
+        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">     
+          <img src="src/iot.jpg" alt="IoT" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
         </div>
-        <h2 class="text-2xl text-white uppercase">IoT Smart Irrigation System</h2>
+        <h2 class="text-2xl text-white uppercase group-hover:text-[#8528D9] transition-colors">IoT Smart Irrigation System</h2>
         <i class="fas fa-user text-[#8528D9] text-xs">Solo Project</i>
         <p class="text-xs text-white/70 leading-relaxed mt-2">
           Mobile application prototype for remote soil monitoring and irrigation control. 
@@ -285,11 +285,11 @@
         </div>
       </div>
 
-      <div onclick="openProject('bastorage')" class="bg-gray border border-white/30 rounded-xl p-6 shadow-[0_2px_5px_#8528D9] cursor-pointer hover:border-purple-500 transition-all group">
-        <div class="overflow-hidden rounded-lg mb-8">        
-          <img src="src/bastorage-gallery.jpg" alt="Bastorage" class="h-50 w-full border border-white object-cover group-hover:scale-110 transition duration-500">
+      <div onclick="openProject('bastorage')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_#8528D9] transition-all group">
+        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">     
+          <img src="src/bastorage-gallery.jpg" alt="Bastorage" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
         </div>
-        <h2 class="text-2xl text-white uppercase">Bastorage: Laboratory Inventory System</h2>
+        <h2 class="text-2xl text-white uppercase group-hover:text-[#8528D9] transition-colors">Bastorage: Laboratory Inventory System</h2>
         <i class="fas fa-user text-[#8528D9] text-xs">Group Project</i>
         <p class="text-xs text-white/70 leading-relaxed mt-2">
           A full-stack web application for managing laboratory inventory and equipment.
@@ -303,11 +303,11 @@
         </div>
       </div>
 
-      <div onclick="openProject('plugwise')" class="bg-gray border border-white/30 rounded-xl p-6 shadow-[0_2px_5px_#8528D9] cursor-pointer hover:border-purple-500 transition-all group">
-        <div class="overflow-hidden rounded-lg mb-8">        
-          <img src="src/plugwise.jpg" alt="Pluwise" class="h-50 w-full border border-white object-cover group-hover:scale-110 transition duration-500">
+      <div onclick="openProject('plugwise')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_#8528D9] transition-all group">
+        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">        
+          <img src="src/plugwise.jpg" alt="Pluwise" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
         </div>
-        <h2 class="text-2xl text-white uppercase">Plugwise: IoT Smart Outlet</h2>
+        <h2 class="text-2xl text-white uppercase group-hover:text-[#8528D9] transition-colors">Plugwise: IoT Smart Outlet</h2>
         <i class="fas fa-user text-[#8528D9] text-xs">Group Project</i>
         <p class="text-xs text-white/70 leading-relaxed mt-2">
           IoT-enabled smart outlet simulation system that allows users to control the power for multiple sockets—either manually or automatically (timed)—and monitor outlet status (active/inactive)
