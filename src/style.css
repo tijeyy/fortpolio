@@ -3,13 +3,22 @@
 body {
   scroll-behavior: smooth;
   font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at 70% 30%, #2D004F 0%, #000000 70%);
+  background: #1a1a2e;
   background-attachment: fixed;
   color: #D9D9D9;
 }
 
 h1, h2, h3, h4, .anton {
   font-family: 'Anton', sans-serif;
+}
+
+:root {
+  --accent-primary: #8528D9;
+  --accent-light: #C77DFF;
+  --accent-secondary: #00D4FF;
+  --bg-hero: #0D0D1A;
+  --bg-card: #111118;
+  --bg-surface: #16161F;
 }
 
 .sticky-nav {
@@ -19,7 +28,7 @@ h1, h2, h3, h4, .anton {
   width: 100%;
   z-index: 1000;
   padding: 0.8rem 1rem !important;
-  background: rgba(0, 0, 0, 0.8);
+  background: #1a1a2e;
   backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   animation: slideDown 0.5s ease;
