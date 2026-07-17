@@ -1,62 +1,145 @@
-import './style.css'
+// Project Data Object
+const projData = {
+    'lumina': {
+        title: 'Lumina Alert Website',
+        role: 'GROUP - Web Developer',
+        desc: 'Developed a responsive website for Lumina Alert using HTML, CSS, and JavaScript. Allows admins/operators to register their contact information to be alerted when prototype detects driver drowsiness.',
+        contrib: [
+            'Built responsive UI with custom CSS animations',
+            'Implemented registration forms with validation',
+            'Integrated real-time notification hooks',
+            'Optimized system response latency'
+        ],
+        tags: ['HTML', 'CSS', 'JavaScript'],
+        mainImg: 'src/lumina-welcome.jpg',
+        otherImgs: ['src/lumina-welcome.jpg','src/lumina.jpg'],
+        git: 'https://github.com/tijeyy/lumisim',
+        live: 'https://lumisim.netlify.app'
+    },
+    'irrigation': {
+        title: 'IoT Smart Irrigation System',
+        role: 'SOLO - Hardware Architect & App Dev',
+        desc: 'Mobile application prototype for remote soil monitoring and irrigation control. Integrated sensor data visualization and user-friendly controls to optimize water usage for agriculture. Designed user interface and implemented core features using MIT App Inventor.',
+        contrib: [
+            'Engineered sensor integration with Arduino firmware',
+            'Designed mobile UI for intuitive farm management',
+            'Implemented Firebase real-time data sync',
+            'Automated irrigation logic based on moisture thresholds'
+        ],
+        tags: ['MIT App Inventor', 'IoT', 'Arduino', 'Firebase'],
+        mainImg: 'src/iot.jpg',
+        otherImgs: ['src/iot.jpg',"src/iot-aboutPage.jpg","src/iot-systemOFF.jpg","src/iot-systemON.jpg"],
+        git: 'https://drive.google.com/drive/folders/1oFvON7l7Whnxi9DGHtBkhnRyGEVNwmtl?usp=sharing',
+        live: 'https://drive.google.com/file/d/1G0w-7qnGVvQzGc_6EnI7DWZwM40Nv5Ne/view?usp=drive_link'
+    },
+    'bastorage': {
+        title: 'Bastorage',
+        role: 'GROUP - Full-Stack Developer',
+        desc: 'A full-stack web application for managing laboratory inventory and equipment. Features a real-time Firebase backend for data storage and synchronization, allowing users to track inventory levels and manage equipment checkout history.',
+        contrib: [
+            'XX',
+            'XX'
+        ],
+        tags: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
+        mainImg: 'src/bastorage.jpg',
+        otherImgs: ['src/bastorage.jpg','src/bastorage-gallery.jpg','src/bastorage-table.jpg'],
+        git: 'https://github.com/tijeyy/bastorage',
+        live: 'https://bastorage.netlify.app'
+    },
+    'plugwise': {
+        title: 'Plugwise',
+        role: 'GROUP - IoT System Developer',
+        desc: 'IoT-enabled smart outlet system that allows users to control the power for multiple sockets—either manually or automatically (timed)—and monitor outlet status (active/inactive)',
+        contrib: [
+            'XX',
+            'XX'
+        ],
+        tags: ['HTML', 'JavaScript', 'Firebase', 'IoT'],
+        mainImg: 'src/plugwise.jpg',
+        otherImgs: ['src/plugwise.jpg','src/plugwise1.jpg',"src/plugwise2.jpg","src/plugwise3.jpg"],
+        git: 'https://github.com/tijeyy/plugWise',
+        live: 'https://plugwise.netlify.app'
+    }
+};
 
-// NAVBAR 
-const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('nav a');
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - (window.innerHeight / 2);
-    if (window.pageYOffset >= sectionTop) {
-      current = section.getAttribute('id');
-    }
-  });
-  navLinks.forEach(a => {
-    a.classList.remove('text-purple-500', 'scale-105');
-    if (current && a.getAttribute('href').includes(current)) {
-      a.classList.add('text-purple-500', 'scale-105');
-    }
-  });
-  if (window.pageYOffset > 150) {
-    navbar.classList.add('sticky-nav');
-  } else {
-    navbar.classList.remove('sticky-nav');
-  }
+// Modal Logic Functions
+window.openProject = function(id) {
+    const data = projData[id];
+    if (!data) return;
+
+    document.getElementById('modal-projTitle').innerText = data.title;
+    document.getElementById('modal-role').innerText = `// ${data.role}`;
+    document.getElementById('modal-desc').innerText = data.desc;
+    document.getElementById('modal-mainImage').src = data.mainImg;
+    document.getElementById('modal-gitLink').href = data.git;
+    document.getElementById('modal-liveLink').href = data.live;
+
+    const contribList = document.getElementById('modal-contrib');
+    contribList.innerHTML = data.contrib.map(c => `
+        <li class="flex items-start gap-2">
+            <span class="text-primary mt-1 text-xs">></span>
+            <span>${c}</span>
+        </li>
+    `).join('');
+
+    const tagsContainer = document.getElementById('modal-tags');
+    tagsContainer.innerHTML = data.tags.map(t => `
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-[10px] text-secondary uppercase">${t}</span>
+    `).join('');
+
+    const thumbContainer = document.getElementById('modal-otherImages');
+    thumbContainer.innerHTML = data.otherImgs.map((img, idx) => `
+        <div class="aspect-square rounded-lg border border-white/10 overflow-hidden cursor-pointer hover:border-primary/50 transition-all" onclick="changeModalImg('${img}')">
+            <img src="${img}" class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity" alt="thumbnail ${idx}">
+        </div>
+    `).join('');
+
+    document.getElementById('proj-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeModal = function() {
+    document.getElementById('proj-modal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+};
+
+window.changeModalImg = function(src) {
+    document.getElementById('modal-mainImage').src = src;
+};
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
 });
 
-// REVEAL ANIMATION
-const revealElements = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('active');
+// Terminal typing effect
+const terminalText = "Building the future of integrated systems...";
+let i = 0;
+const typingElement = document.querySelector('.typing');
+function typeEffect() {
+    if (i < terminalText.length) {
+        typingElement.textContent += terminalText.charAt(i);
+        i++;
+        setTimeout(typeEffect, 50);
     }
-  });
+}
+setTimeout(typeEffect, 1000);
+
+// Smooth scroll reveal observer
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-10');
+        }
+    });
 }, { threshold: 0.1 });
 
-revealElements.forEach(el => revealObserver.observe(el));
-
-// SMOOTH SCROLL 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      // Offset for the sticky navbar
-      const headerOffset = 80;
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  });
+document.querySelectorAll('section:not(#splash)').forEach(section => {
+    section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+    observer.observe(section);
 });
 
-// COPY TO CLIPBOARD
+        // COPY TO CLIPBOARD
 window.copytoClipboard = function(text) {
   navigator.clipboard.writeText(text).then(() => {
     alert('Mobile number copied to clipboard!');
@@ -65,90 +148,34 @@ window.copytoClipboard = function(text) {
   });
 }
 
-// PROJ MODAL
-const projData = {
-  'lumina': {
-    title: "Lumina Alert Website",
-    role: "Group Project",
-    images: ["src/lumina-welcome.jpg","src/lumina.jpg"],
-    desc: "A disaster preparedness system built to provide real-time updates. The system integrates weather APIs and user reporting to visualize danger zones.",
-    contrib: ["XX", "XX", "XX"],
-    tags: ["HTML", "CSS", "JS"],
-    github: "https://github.com/tijeyy/lumisim",
-    live: "https://lumisim.netlify.app"
-  },
-  'irrigation': {
-    title: "IoT Smart Irrigation System",
-    role: "Solo Project",
-    images: ["src/iot.jpg","src/iot-aboutPage.jpg","src/iot-systemOFF.jpg","src/iot-systemON.jpg"],
-    desc: "A mobile application prototype for remote soil monitoring and irrigation control.",
-    contrib: ["XX", "XX", "XX"],
-    tags: ["MIT App Inventor", "IoT", "Firebase"],
-    github: "https://drive.google.com/drive/folders/1oFvON7l7Whnxi9DGHtBkhnRyGEVNwmtl?usp=sharing",
-    live: "https://drive.google.com/file/d/1G0w-7qnGVvQzGc_6EnI7DWZwM40Nv5Ne/view?usp=drive_link"
-  },
-  'bastorage': {
-    title: "Bastorage: Laboratory Inventory System",
-    role: "Group Project",
-    images: ["src/bastorage.jpg","src/bastorage-gallery.jpg","src/bastorage-table.jpg"],
-    desc: "A full-stack web application for managing laboratory inventory and equipment.",
-    contrib: ["XX", "XX", "XX"],
-    tags: ["HTML", "CSS", "JS"],
-    github: "https://github.com/tijeyy/bastorage",
-    live: "https://bastorage.netlify.app"
-  },
-  'plugwise': {
-    title: "Plugwise: Smart Home Automation",
-    role: "Group Project",
-    images: ["src/plugwise.jpg","src/plugwise1.jpg","src/plugwise2.jpg","src/plugwise3.jpg"],
-    desc: "A smart home automation system that allows users to control and monitor their appliances remotely.",
-    contrib: ["XX", "XX", "XX"],
-    tags: ["HTML", "CSS", "JS"],
-    github: "https://github.com/tijeyy/plugWise",
-    live: "https://plugwise.netlify.app"
-  },
-};
-function openProject(id) {
-  const data = projData[id];
-  if (!data) return;
+lucide.createIcons();
+let percent = 0;
+const percentEl = document.getElementById('percent');
+const loadbarEl = document.getElementById('loadbar');
+const splash = document.getElementById('splash');
+const app = document.getElementById('app');
 
-  document.getElementById('modal-projTitle').innerText = data.title;
-  document.getElementById('modal-role').innerText = `ROLE: ${data.role}`;
-  document.getElementById('modal-desc').innerText = data.desc;
-  const mainImg = document.getElementById('modal-mainImage'); 
-  mainImg.src = data.images[0];
+const interval = setInterval(() => {
+percent++;
+percentEl.textContent = percent + '%';
+loadbarEl.style.width = percent + '%';
 
-  document.getElementById('proj-gitLink').href = data.github;
-  document.getElementById('proj-liveLink').href = data.live;
+if (percent >= 100) {
+    clearInterval(interval);
+    splash.classList.add("fade-out");
 
-  document.getElementById('modal-contrib').innerHTML = data.contrib.map(item => `<li>${item}</li>`).join('');
-  document.getElementById('modal-tags').innerHTML = data.tags.map(tag => 
-    `<span class="bg-purple-500/20 text-[#C77DFF] px-2 py-1 rounded-lg border border-purple-500/30">${tag}</span>`
-  ).join(' ');
-
-  const thumbContainer = document.getElementById('modal-otherImages');
-  thumbContainer.innerHTML = data.images.map((imgSrc, index) => `
-    <img src="${imgSrc}" onclick="changeModalImg('${imgSrc}')" alt="Thumbnail ${index + 1}" 
-    class="h-16 w-full object-cover rounded-md border border-white/50 cursor-pointer hover:border-purple-500 transition-all opacity-60 hover:opacity-100">
-  ` ).join('');
-
-  document.getElementById('proj-modal').classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+        splash.style.display = "none";
+        app.style.display = "block";
+        document.body.classList.remove("overflow-hidden");
+    },600);
 }
-function closeModal() {
-  document.getElementById('proj-modal').classList.add('hidden');
-  document.body.style.overflow = 'auto';
-}
-function changeModalImg(src) {
-  const mainImg = document.getElementById('modal-mainImage');
-  mainImg.style.opacity = 0;
-  setTimeout(() => {
-    mainImg.src = src;
-    mainImg.style.opacity = '1';
-  }, 200)
-}
+}, 20); 
 
+// NAVBAR 
+const obs = new IntersectionObserver(ents => ents.forEach(e => {
+  const a = document.querySelector(`nav a[href="#${e.target.id}"]`);
+  if (a) a.classList.toggle('active', e.isIntersecting);
+}), { rootMargin: "-40% 0px -50% 0px" });
 
-window.openProject = openProject;
-window.closeModal = closeModal;
-window.changeModalImg = changeModalImg;
+document.querySelectorAll('section[id]').forEach(s => obs.observe(s));

@@ -5,392 +5,676 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>forfolio</title>
-  <link href="/src/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap">
-  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  @import "tailwindcss";
+
+body {
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+  background: #1a1a2e;
+  background-attachment: fixed;
+  color: #D9D9D9;
+}
+
+h1, h2, h3, h4, .anton {
+  font-family: 'Anton', sans-serif;
+}
+
+:root {
+  --accent-primary: #8528D9;
+  --accent-light: #C77DFF;
+  --accent-secondary: #00D4FF;
+  --bg-hero: #0D0D1A;
+  --bg-card: #111118;
+  --bg-surface: #16161F;
+}
+
+.sticky-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0; right: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0.8rem 1rem !important;
+  background: #1a1a2e;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideDown 0.5s ease;
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+nav a:hover {
+  color: #C77DFF;
+  scale: 105%;
+  transition: color 0.3s ease;
+}
+nav a:hover::after {
+  content: '';
+  position: absolute;
+  left: 50%; bottom: -4px;
+  height: 4px; width: 4px;
+  background: #C77DFF;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #8528D9, 0 0 20px #8528D9;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.id-photo {
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%) contrast(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive adjustments */
+
+@media (min-width: 768px) {
+  .sticky-nav {
+    padding: 1.2rem 8rem !important;
+  }
+}
+</style>
+
+
+
 </head>
 
-<body class="oxanium bg-black text-red-500 overflow-hidden scanlines noise">
-<div class="hud-line hud-left"></div>
-<div class="hud-line hud-right"></div>
-<!-- ============ SPLASH ============= -->
-<section id="splash" class="fixed bg-black inset-0 z-50 flex justify-center items-center scanlines noise boot-flicker fade-out">
-
-  <div class="flex flex-col items-center space-y-14">
-
-    <!-- LOAD SECTION -->
-    <div class="relative w-xl max-w-4xl px-6">
-      <!-- left float -->
-      <div class="absolute -left-8 top-1/2 -translate-y-1/2 space-y-4 animate-float">
-        <div class="relative w-3 h-3 border border-red-500">
-          <div class="bg-red-500 w-1 h-1 -translate-4"></div>
-        </div>
-        <!-- line (-|) -->
-        <div class="relative bg-red-500 w-1 h-6">
-          <div class="absolute bg-red-500 w-10 h-[2px] top-1/2 right-full -translate-y-1/2"> ... </div>
-        </div>
-        <div class="relative w-2 h-2 bg-red-500">
-          <div class="w-4 h-2 border border-red-500 -translate-x-5 translate-y-5">~</div>
-        </div>
+<body>
+  <!-- ============ TOP / WELCOME SECTION ============= -->
+  <section class="bg-[var(--bg-hero)] border-t border-r border-l border-white/30 rounded-3xl mx-4 my-4 md:mx-18 md:my-8 px-4 md:px-6 overflow-hidden 
+      relative flex flex-col min-h-[90vh]">
+    <!-- navbar -->
+    <nav id="navbar" class="flex flex-col md:flex-row items-center justify-between py-8 px-8 z-50">
+      <span class="anton bg-black border border-[var(--accent-primary)] text-[var(--accent-light)] uppercase
+            text-xs font-bold px-10 py-3 rounded-full tracking-widest">TIJEY</span>
+      
+      <div class="bg-black border border-white/80 h-10 md:h-12 w-full max-w-2xl text-white overflow-hidden
+              flex justify-around items-center gap-2 md:gap-10 px-4 md:px-6 py-2 rounded-full text-[9px] md:text-xs tracking-widest">
+        <span class="hidden md:inline w-2 h-2 rounded-full bg-white"></span>
+        <a href="#home" class="anton px-1 md:px-2">HOME</a>
+        <a href="#about" class="anton px-1 md:px-2">ABOUT</a>
+        <a href="#projects" class="anton px-1 md:px-2">PROJECTS</a>
+        <a href="#contact" class="anton px-1 md:px-2">CONTACT</a>
+        <span class="hidden md:inline w-2 h-2 rounded-full bg-white"></span>
       </div>
 
-      <!-- right float -->
-      <div class="absolute -right-12 top-1/2 -translate-y-1/2 space-y-4 animate-float">
-        <div class="relative w-3 h-3 border border-red-500">
-          <div class="bg-red-500 w-1 h-1 -translate-4 -translate-x-[-22px]">~</div>
-        </div>
-        <!-- line (|-) -->
-        <div class="relative bg-red-500 w-1 h-6">
-          <div class="absolute bg-red-500 w-10 h-[2px] top-1/2 left-full"></div>
-        </div>
-        <div class="w-2 h-2 bg-red-500">
-          <div class="w-4 h-2 border border-red-500 translate-x-5 translate-y-5">...</div>
-        </div>
+      <div class="hidden md:flex gap-4">
+        <button class="w-10 h-10 rounded-full shadow-[0_3px_5px_#757575] flex items-center justify-center text-white text-xs
+              hover:scale-110 hover:text-purple-300 transition duration-300">
+              <a href="https://github.com/tijeyy" target="_blank">
+                <i class="fa-brands fa-github text-xl"></i></a>  
+          </button>
+        <button class="w-10 h-10 rounded-full shadow-[0_3px_5px_#757575] flex items-center justify-center text-white text-xs 
+              hover:scale-110 hover:text-purple-300 transition duration-300">
+              <a href="https://www.linkedin.com/in/trishia-javier-55761939b/" target="_blank">
+                <i class="fa-brands fa-linkedin text-xl"></i></a>
+        </button>
       </div>
+    </nav>
 
-      <!-- loading text and % count -->
-      <div class="flex justify-between text-xs mb-4">
-        <span class="tracking-widest text-violet-500">INITIALIZING INTERFACE ...</span>
-        <span id="percent" class="tracking-widest text-violet-500">0%</span>
-      </div>
-      <!-- loading bar -->
-      <div class="w-full h-2 bg-red-900/30 overflow-hidden">
-        <div id="loadbar" class="h-full bg-gradient-to-r from-red-500 to-violet-700"></div>
-      </div>
-
-      <div class="text-xs text-center tracking-widest text-red-400 mt-6 animate-glitch">
-        SYNCING DATA STREAMS
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<div id="app" class="opacity-0 pointer-events-none text-red-400
-                      transition-opacity scanlines noise  duration-700">
-
-<!-- ============ NAVBAR ============ -->
-<nav id="navbar"
-  class="fixed top-0 left-0 w-full bg-black/80 backdrop-blur border-b border-red-900
-         opacity-0 pointer-events-none transition-all duration-500 z-40">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-    <span class="text-white tracking-widest text-sm">TIJEY</span>
-    <div class="text-xs tracking-widest text-violet-500">
-      <a href="#about">ABOUT</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#contact">CONTACT</a>
-    </div>
-  </div>
-</nav>
-
-
-<!-- ============ WELCOME ============ -->
-
-<section id="welcome" class="relative h-screen flex flex-col items-center justify-center text-center px-6">
-  <div class="text-center space-y-6">
-    <h1 class="text-white text-5xl tracking-widest font-bold animate-glitch"> TRISHIA JANE JAVIER </h1>
-    <p class="text-sm md:text-base tracking-widest text-violet-500"> Welcome to my portfolio website! </p>
-
-    <div class="mt-10 text-xs tracking-widest text-red-400">
-      SCROLL THROUGH ↓
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONTENT ============ -->
-<div class="max-w-6xl mx-auto relative px-4 md:px-8 py-12">
-
-  <!-- HERO / ABOUT -->
-  <section id="about"
-    class="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-20 items-center reveal opacity-0 transition-opacity">
-    <div class="lg:col-span-2 space-y-6">
-      <h2 class="text-3xl md:text-7xl font-bold tracking-widest neon text-white">
-        HI, I'M <span class="text-violet-400">TRISHIA</span>
-      </h2>
-
-      <p class="max-w-xl leading-relaxed">
-        Computer Engineering student focused on
-        <span class="text-white">Frontend Development and UI/UX Design</span>. I love creating
-        visually appealing and user-friendly digital experiences.
-      </p>
-
-      <a href="#" class="flex gap-3 border border-red-500 rounded-xl px-6 py-3 text-sm 
-                  tracking-widest glass-hover hover:text-violet-500 transition">
-        DOWNLOAD CV <i data-lucide="download" class="w-4 h-4"></i>
-      </a>
-    </div>  
-    
-    <!-- PROFILE CARD (right) -->
-    <div class="glass rounded-3xl p-8 text-center">
-      <img src="" class="w-32 h-32 mx-auto rounded-full border-2 border-red-500 mb-6">
-      <h3 class="font-bold text-xl text-white neon">TRISHIA JANE JAVIER</h3>
-      <p class="text-xs mb-4">Computer Engineering Student</p>
-
-      <div class="flex justify-center gap-4">
-        <a href="" class="p-2 border border-red-500 hover:bg-red-400/20 rounded-md"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
-        <a href="" class="p-2 border border-red-500 hover:bg-red-400/20 rounded-md"><i data-lucide="github" class="w-4 h-4"></i></a>
-        <a href="" class="p-2 border border-red-500 hover:bg-red-400/20 rounded-md"><i data-lucide="briefcase" class="w-4 h-4"></i></a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- EDUCATION & EXPERIENCE -->
-  <section class="mb-24 reveal opacity-0 transition-opacity">
-    <div class="flex items-center gap-4 mb-10">
-      <h2 class="text-3xl tracking-widest text-white neon flex items-center gap-3">
-        <i data-lucide="graduation-cap"></i>
-        EDUCATION & EXPERIENCE
-      </h2>
-      <div class="divider flex-1"></div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <!-- EDUCATION -->
-      <div class="glass rounded-2xl p-6">
-        <h3 class="text-xl mb-4 text-violet-500 tracking-widest neon">
-          EDUCATION
-        </h3>
-
-        <div class="relative space-y-6 border-l-2 border-red-700 pl-6">
-
-          <div class="space-y-1 relative">
-            <div class="absolute -left-8 top-1 w-4 h-4 rounded-full bg-red-700"></div>
-            <h4 class="text-gray-400 font-bold">
-              BACHELOR OF SCIENCE IN COMPUTER ENGINEERING
-            </h4>
-            <p class="text-violet-400 text-sm">
-              San Sebastian College-Recoletos de Cavite
-            </p>
-            <p class="text-sm">
-              2021 - Present
-            </p>
-          </div>
-          
-          <div class="space-y-1 relative">
-            <div class="absolute -left-8 top-1 w-4 h-4 rounded-full bg-gray-400"></div>
-            <h4 class="text-gray-400 font-bold">
-              ICT in MOBOLE APP AND WEB DEVELOPMENT
-            </h4>
-            <p class="text-violet-400 text-sm">
-              STI College Rosario
-            </p>
-            <p class="text-sm">
-              2019 - 2021
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- EXPERIENCE -->
-      <div class="glass rounded-2xl p-8">
-        <h3 class="text-xl mb-4 text-violet-500 tracking-widest neon">
-          EXPERIENCE
-        </h3>
-
-        <div class="space-y-6 border-l border-red-700 pl-6">
-          <div class="space-y-1 relative">
-            <div class="absolute -left-8 top-1 w-4 h-4 rounded-full bg-red-700"></div>
-            <h4 class="text-gray-400 font-bold">
-              DESIGN PROJECT PROTOTYPE
-            </h4>
-            <p class="text-violet-400 text-sm">
-              San Sebastian College-Recoletos de Cavite
-            </p>
-            <p class="text-sm">
-              JUNE 2025 - DECEMBER 2025
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROJECTS & SKILLS & CONTACT -->
-  <section class="mb-24 reveal opacity-0 transition-opacity">
-    <div class="flex items-center gap-6 mb-10">
-      <h2 class="text-3xl tracking-widest text-white neon flex items-center gap-3">
-        <i data-lucide="layers"></i> PROJECTS & SKILLS</h2>
-      <div class="divider flex-1"></div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-      <!-- PROJECTS -->
-      <div class="grid lg:col-span-9 md:grid-cols-2 gap-6" id="projects">
-        <div class="glass rounded-2xl p-6 cursor-pointer glass-hover" onclick="openProject(0)">
-          <div class="bg-red-900/20 h-48 rounded-xl mb-6"></div>
-          <h3 class="text-xl text-violet-400 neon">PROJECT NAME</h3>
-          <p class="text-sm mb-4 text-white">
-            Project description
+    <div id="home" class="flex flex-col lg:flex-row items-center justify-around gap-12 mb-10 pt-6 md:pt-10">
+      <!-- LEFT -->
+      <div class="w-full lg:w-1/2 space-y-6 pt-2 px-8 md:px-8 order-2 lg:order-1 text-center lg:text-left">
+        <div class="flex items-center justify-center lg:justify-start gap-3 mb-4">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+          </span>
+          <p class="font-mono text-green-500 tracking-[0.2em] uppercase text-[10px]">
+            Status: Open for Internships  Portfolio_v1.0.exe
           </p>
-          <div class="flex gap-2 text-xs">
-            <span class="border border-red-500 px-3 py-1">tech used</span>
-            <span class="border border-violet-500 px-3 py-1">tech used</span>
-            <span class="border border-orange-500 px-3 py-1">tech used</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl uppercase leading-tight tracking-tight">
+          Driven by curiosity, <br class="hidden md:block">
+          <span class="text-[var(--accent-light)]"> defined by the systems I build</span></h2>
+        <p class="text-sm leading-relaxed">
+          Computer Engineering student with a passion for technology.
+        </p>
+        <p class="text-sm md:text-base leading-relaxed max-w-md mx-auto lg:mx-0">
+          Currently exploring the intersection of web development and system design, with a focus on creating intuitive and visually appealing user interfaces. 
+        </p>
+        <a href="/JAVIER,TRISHIA_RESUME.pdf" target="_blank" rel="noopener noreferrer" 
+          class="anton bg-black shadow-[0_2px_5px_var(--accent-light)] text-xs mt-4 px-12 py-3 rounded-full tracking-widest uppercase
+          inline-block hover:scale-105 hover:text-purple-300 transition duration-300 cursor-pointer">
+          VIEW CV
+        </a>
+      </div>
+
+    <!-- RIGHT = ID CARD -->
+    <div class="relative group w-full max-w-[340px] md:max-w-sm px-4 order-1 lg:order-2">
+      <div class="relative w-full bg-[var(--bg-card)] border border-white/20 rounded-2xl p-6 shadow-2xl transition-all duration-500 hover:shadow-[#9639D9]/20 group-hover:rotate-1">
+
+      <!-- id top header -->
+        <div class="flex justify-between items-start mb-6">
+          <div class="space-y-1">
+            <h3 class="uppercase tracking-tighter text-[var(--accent-primary)] text-xl leading-none">IDENTIFICATION</h3>
+            <P class="uppercase tracking-[0.3em] text-[10px] font-mono text-white/40">System Developer Access</P>
+          </div>
+          <div class="text-right">
+            <p class="text-[8px] text-green-500">VER. 2026.04</p>
+            <span class="absolute top-0 right-0 p-4 opacity-12">
+              <i class="fa-solid fa-microchip text-5xl"></i>
+            </span>
           </div>
         </div>
 
-        <!-- other projects -->
+      <!-- id center content / pic + details -->
+        <div class="flex gap-6 items-center">
+          <div>
+            <img src="src/me.jpg" alt="" 
+                class="id-photo w-24 h-32 md:w-28 md:h-36 rounded-lg">
+          </div>
+
+          <div class="space-y-4 flex-1">
+            <div>
+              <p class="uppercase tracking-widest text-[8px] text-white/40 font-bold">Surname / Name</p>
+              <p class="anton uppercase tracking-wide text-sm">Javier, Trishia Jane</p>
+            </div>
+            <div>
+              <p class="uppercase tracking-widest text-[8px] text-white/40 font-bold">Class / Role</p>
+              <p class="tracking-wide text-xs text-[var(--accent-light)] font-medium italic">Computer Engineer</p>
+            </div>
+            <div>
+              <p class="uppercase tracking-widest text-[8px] text-white/40 font-bold">Location</p>
+              <p class="uppercase tracking-wide text-xs text-white/80">Cavite, PH</p>
+            </div>
+
+            <div class="pt-2 opacity-40">
+              <i class="fa-solid fa-barcode text-xl"></i>
+            </div>
+          </div>
+        </div>
+
+      <!-- id bottom -->
+        <div class="absolute pt-2 bottom-4 left-6 right-6 flex justify-between items-center border-t border-white/5">
+          <p class="text-[8px] font-mono text-white/30"> ISS_DATE: XX_AUG_202X </p>
+          <p class="text-[8px] font-mono text-[var(--accent-primary)]">COMP.ENGR</p>
+        </div>
+
+      </div>
+    </div>
+
+    </div>
+
+    <h1 class="opacity-80 text-center text-[60px] md:text-[100px] lg:text-[130px] text-[var(--accent-primary)] mb-[-10px] md:mb-[-20px] uppercase leading-none tracking-tighter">
+      MY PORTFOLIO
+    </h1> 
+  </section>
+
+  <!-- =============== ABOUT SECTION ============== -->
+  <section id="about" class="mx-auto max-w-7xl px-6 py-20 gap-20 flex flex-col lg:flex-row justify-center items-center lg:items-start reveal">
+
+    <div id="desc" class="w-full max-w-lg space-y-6 md:space-y-10">
+      <div>
+        <h2 class="uppercase text-5xl md:text-6xl font-light">meet her!</h2>
+        
+        <div class="font-mono text-xs bg-[var(--bg-card)] border border-white/20 rounded-lg p-4 mt-6">
+          <div class="flex gap-1.25">
+            <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+          </div>
+
+          <p class="text-green-500 mt-3">trishia@cpe:~$ <span class="text-white">aboutHer.txt</span> </p>
+          <p class="text-white/60 mt-1">
+            Hi! I'm Trish, a Computer Engineering student from Baste Cavite.
+            My journey in tech started with a curiosity for how things work and a desire to create. 
+          </p>
+          <p class="text-white/70 leading-relaxed font-light mt-2">
+            I'm passionate about technology and eager to learn and grow in the field of software development. 
+            I have experience in web development, programming languages, and a strong foundation in computer engineering principles. 
+            I'm excited to connect with like-minded individuals and explore opportunities in the tech industry.
+          </p>
+
+          <p class="text-green-500 mt-3">trishia@cpe:~$ _ </p>        
+        </div>
       </div>
 
       <!-- SKILLS -->
-      <div class="lg:col-span-3 space-y-6">
-        <div class="glass rounded-2xl p-6">
-          <h3 class="text-violet-500 mb-4 text-xl neon flex items-center gap-3">
-            <i data-lucide="code"></i> SKILLS</h3>
-          <div class="space-y-2 text-sm">
-            <span class="border border-red-500 p-2 inline-block">HTML</span>
-            <span class="border border-red-500 p-2 inline-block">CSS</span>
-            <span class="border border-red-500 p-2 inline-block">JavaScript</span>
-            <span class="border border-red-500 p-2 inline-block">React</span>
-            <span class="border border-red-500 p-2 inline-block">Tailwind CSS</span>
+      <div id="skills">
+        <h3 class="text-[var(--accent-light)] text-xl md:text-2xl uppercase mb-6 pt-8 tracking-widest">Skills</h3>
+        <div class="grid grid-cols-5 gap-5 justify-items-center">
+          
+          <i class="fa-brands fa-html5 text-5xl mb-4 text-orange-500"></i>
+          <i class="fa-brands fa-css3-alt text-5xl mb-4 text-blue-500"></i>
+          <i class="fa-brands fa-js text-5xl mb-4 text-yellow-400"></i>
+          <i class="fa-brands fa-python text-5xl mb-4 text-blue-600"></i>
+          <i class="fa-brands fa-java text-5xl mb-4 text-brown"></i>
+
+        </div>
+
+        <h4 class="text-[var(--accent-light)] text-md uppercase mb-6 pt-8 tracking-widest">Soft Skills</h4>
+
+        <div class="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3 text-center items-center text-purple-400">
+          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Communication</span>
+          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Team Collaboration</span>
+          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Problem Solving</span>
+          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Time Management</span>
+          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Adaptability</span>
+          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Eager to Learn</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUC + EXPE -->
+    <div id="education" class="bg-[var(--bg-card)] border border-white/30 rounded-3xl w-full max-w-sm p-8 
+              space-y-10 shadow-[0_2px_5px_var(--accent-primary)]">
+
+      <div>
+        <h3 class="text-2xl text-[var(--accent-light)] uppercase tracking-widest mb-6 pb-4 border-b border-[var(--accent-light)]">
+          Education
+        </h3>
+        
+        <div class="relative border-l-2 border-[var(--accent-primary)] ml-2 pb-2 space-y-8">
+          <div class="relative pl-8">
+            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-black border-2 border-[var(--accent-light)] shadow-[0_0_10px_var(--accent-primary)]"></span>
+              <h4 class="text-sm text-white uppercase tracking-widest pb-2">BS Computer Engineering</h4>
+              <p class="text-xs text-white/70 leading-relaxed pb-2">San Sebastian College Recoletos-de Cavite</p>
+              <p class="text-xs text-white/70 pb-2">2021-2026</p>
+          </div>
+          <div class="relative pl-8">
+            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-black border-2 border-[var(--accent-light)] shadow-[0_0_10px_var(--accent-primary)]"></span>
+              <h4 class="text-sm text-white uppercase tracking-widest pb-2">ICT in Mobile App and Web Development</h4>
+              <p class="text-xs text-white/70 leading-relaxed pb-2">STI College Rosario</p>
+              <p class="text-xs text-white/70 pb-2">2019-2021</p>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="text-right text-2xl text-[var(--accent-light)] uppercase tracking-widest pb-4 mb-6 border-b border-[var(--accent-light)]">
+          Experience
+        </h3>
+        <div class="relative border-l-2 border-[var(--accent-primary)] ml-2 pb-2 space-y-8">
+          <div class="relative pl-8">
+            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-black border-2 border-[var(--accent-light)] shadow-[0_0_10px_var(--accent-primary)]"></span>
+              <h4 class="text-sm text-white uppercase tracking-widest pb-2">Design Project Prototype</h4>
+              <p class="text-xs text-white/70 leading-relaxed pb-2">San Sebastian College Recoletos-de Cavite</p>
+              <p class="text-xs text-white/70 pb-2">2025-2026</p>
+          </div>
+          <div class="relative pl-8">
+            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-black border-2 border-[var(--accent-light)] shadow-[0_0_10px_var(--accent-primary)]"></span>
+              <h4 class="text-sm text-white uppercase tracking-widest pb-2">Academic Team Projects</h4>
+              <p class="text-xs text-white/70 leading-relaxed pb-2">Collaborated with groupmates on development, system logic, and project presentations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center uppercase italic text-sm text-[var(--accent-primary)] tracking-widest pt-2 cursor-pointer hover:opacity-70 transition">
+        <a href="#projects" class="text-[var(--accent-primary)] hover:text-[var(--accent-light)] hover:scale-105">Explore projects ↓</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ============ PROJECTS SECTION ============= -->
+  <section id="projects" class="mx-auto max-w-7xl px-6 py-6 text-white/80 reveal">
+      <h1 class="text-center mt-auto text-[60px] md:text-[100px] lg:text-[130px] text-[var(--accent-primary)] uppercase leading-none tracking-tighter">
+        PROJECTS
+      </h1> 
+    
+    <div class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 py-10 gap-8">
+
+      <div onclick="openProject('lumina')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_var(--accent-primary)] transition-all group">
+        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">
+          <img src="src/lumina-welcome.jpg" alt="Lumina" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
+        </div>
+        <h2 class="text-2xl text-white uppercase group-hover:text-[var(--accent-primary)] transition-colors">Lumina Alert Website</h2>
+        <p class="text-sm mt-1 text-[var(--accent-primary)]"><i class="fas fa-users mr-1"></i>Group Project</p>
+        <p class="text-xs text-white/70 leading-relaxed mt-2">
+          Developed a responsive website for Lumina Alert using HTML, CSS, and JavaScript.
+          Allows admins/operators to register their contact information to be alerted when prototype detects driver drowsiness.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4 text-purple-400">
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">HTML</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">CSS</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">JavaScript</span>
+        </div>
+      </div>
+
+      <div onclick="openProject('irrigation')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_var(--accent-primary)] transition-all group">
+        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">     
+          <img src="src/iot.jpg" alt="IoT" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
+        </div>
+        <h2 class="text-2xl text-white uppercase group-hover:text-[var(--accent-primary)] transition-colors">IoT Smart Irrigation System</h2>
+        <p class="text-sm mt-1 text-[var(--accent-primary)]"><i class="fas fa-user mr-1"></i>Solo Project</p>
+        <p class="text-xs text-white/70 leading-relaxed mt-2">
+          Mobile application prototype for remote soil monitoring and irrigation control. 
+          Integrated sensor data visualization and user-friendly controls to optimize water usage for agriculture.
+          Designed user interface and implemented core features using MIT App Inventor.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4 text-purple-400 items-center">
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">MIT App Inventor</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">IoT</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">Arduino</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">Firebase</span>
+        </div>
+      </div>
+
+      <div onclick="openProject('bastorage')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_var(--accent-primary)] transition-all group">
+        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">     
+          <img src="src/bastorage-gallery.jpg" alt="Bastorage" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
+        </div>
+        <h2 class="text-2xl text-white uppercase group-hover:text-[var(--accent-primary)] transition-colors">Bastorage: Laboratory Inventory System</h2>
+        <p class="text-sm mt-1 text-[var(--accent-primary)]"><i class="fas fa-users mr-1"></i>Group Project</p>
+        <p class="text-xs text-white/70 leading-relaxed mt-2">
+          A full-stack web application for managing laboratory inventory and equipment.
+          Features a real-time Firebase backend for data storage and synchronization, allowing users to track inventory levels and manage equipment checkout history.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4 text-purple-400">
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">HTML</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">CSS</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">JavaScript</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">Firebase</span>
+        </div>
+      </div>
+
+      <div onclick="openProject('plugwise')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_var(--accent-primary)] transition-all group">
+        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">        
+          <img src="src/plugwise.jpg" alt="Pluwise" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
+        </div>
+        <h2 class="text-2xl text-white uppercase group-hover:text-[var(--accent-primary)] transition-colors">Plugwise: IoT Smart Outlet</h2>
+        <p class="text-sm mt-1 text-[var(--accent-primary)]"><i class="fas fa-users mr-1"></i>Group Project</p>
+        <p class="text-xs text-white/70 leading-relaxed mt-2">
+          IoT-enabled smart outlet system that allows users to control the power for multiple sockets—either manually or automatically (timed)—and monitor outlet status (active/inactive)
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4 text-purple-400">
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">HTML</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">JavaScript</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">Firebase</span>
+          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">IoT</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!--  DIVIDER -->
+  <div class="flex items-center gap-4 mx-auto max-w-7xl px-6 py-10 opacity-50">
+    <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[var(--accent-primary)] to-transparent"></div>
+    <div class="text-[10px] font-mono text-[var(--accent-light)] tracking-[0.5em]"> SECTION END </div>
+    <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[var(--accent-primary)] to-transparent"></div>
+  </div>
+
+  <!-- ============ CONTACT SECTION ============= -->
+  <section id="contact" class="mx-auto max-w-5xl px-6 py-20 gap-10 flex flex-col lg:flex-row items-center reveal">
+    <div class="lg:w-1/2 w-full">
+      <h1 class="anton text-[40px] md:text-[80px] text-[var(--accent-primary)] uppercase leading-none tracking-tighter">CONTACT <br>ME</h1>
+    </div>
+
+    <div class="lg:w-1/2 w-full space-y-4">
+      <div class="group border-b border-white/30 pb-4 flex justify-between items-center hover:border-[var(--accent-primary)] transition-all">
+        <span class="uppercase text-xs text-white/40 tracking-widest">Email</span>
+        <a href="mailto:jtrishiaj05@gmail.com" class="anton text-md md:text-lg text-white hover:text-[var(--accent-light)] transition-colors">jtrishiaj05@gmail.com</a>
+      </div>
+      <div class="group border-b border-white/30 pb-4 flex justify-between items-center hover:border-[var(--accent-primary)] transition-all">
+        <span class="uppercase text-xs text-white/40 tracking-widest">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/trishia-javier-55761939b/" target="_blank" class="anton text-md md:text-lg text-white hover:text-[var(--accent-light)] transition-colors">LinkedIn Profile</a>
+      </div>
+      <div class="group border-b border-white/30 pb-4 flex justify-between items-center hover:border-[var(--accent-primary)] transition-all"
+            onclick="copytoClipboard('+63 921 723 9974')">
+        <span class="uppercase text-xs text-white/40 tracking-widest">Mobile Number</span>
+        <p class="anton text-md md:text-lg text-white hover:text-[var(--accent-light)] transition-colors"> 
+            (+63) 921 723 9974
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="text-center py-8 border-t border-white/10 px-6">
+    <p class="text-xs text-white/20 tracking-widest uppercase">
+      2026 © TIJEY.
+    </p>
+  </footer>
+
+
+
+</body>
+
+<!-- ============== PROJECT MODAL =================== -->
+  <div id="proj-modal" class="hidden fixed inset-0 z-[2000] p-4 md:p-10 bg-black/70 backdrop-blur-lg flex items-center justify-center">
+    <div class="bg-[var(--bg-card)]/80 border border-white/10 rounded-lg w-full max-w-5xl max-h-[80vh] overflow-y-auto relative">
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center z-10 bg-[var(--bg-surface)] border-b border-white/10 p-4">
+        <div class="flex gap-2">
+          <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+        </div>
+        <span class="anton uppercase tracking-widest text-sm text-white/50">Project_Details.EXE</span>
+        <button onclick="closeModal()" id="close-modal" class="cursor-pointer text-white/50 hover:text-white transition text-xl">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 md:p-10">
+        <!-- Left Column: Image Gallery -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <a href="" target="_blank" id="proj-gitLink" class="w-3 h-3 rounded-full shadow-[0_3px_5px_#757575] flex items-center justify-center text-white text-xs
+                  hover:scale-110 hover:text-purple-300 transition duration-300">
+                  <i class="fa-brands fa-github text-xl"></i></a>
+            <a href="" target="_blank" id="proj-liveLink" class="w-auto h-2 rounded-full shadow-[0_3px_5px_#757575] flex items-center justify-center anton text-white text-[8px] 
+                  p-3 pr-8 pl-8 hover:scale-110 hover:text-purple-300 transition duration-300">
+                  LIVE VIEW<i class="fa-solid fa-arrow-up-right-from-square ml-2 text-[8px]"></i></a>
+          </div>
+          <img id="modal-mainImage" src="" alt="Project Image" class="w-full h-auto object-cover rounded-lg border border-[#D9D9D9] aspect-video">
+          <div id="modal-otherImages" class="grid grid-cols-4 gap-2">
+            <img src="" alt="" class="h-16 rounded-md border border-white/50">
+            <img src="" alt="" class="h-16 rounded-md border border-white/50">
+            <img src="" alt="" class="h-16 rounded-md border border-white/50">
+            <img src="" alt="" class="h-16 rounded-md border border-white/50">
           </div>
         </div>
 
-        <!-- CONTACT -->
-        <div class="glass rounded-2xl p-6 space-y-1" id="contact">
-          <h3 class="text-violet-500 mb-4 text-xl neon flex items-center gap-3">
-            <i data-lucide="mail"></i> CONTACT</h3>
-          <a href="mailto:email@gmail.com" class="contact-item py-1 text-sm rounded hover:text-violet-400 hover:neon transition cursor-pointer">
-            <strong>EMAIL: </strong> email@gmail.com
-          </a>
-          <a href="tel:+1234567890" class="contact-item py-1 text-sm rounded hover:text-violet-400 hover:neon transition cursor-pointer">
-            <strong>PHONE: </strong> (123) 456-7890
-          </a>
-          <div class="contact-item py-1 text-sm">
-            <strong>LOCATION: </strong> Cavite, Philippines
+        <!-- Right Column: Project Details -->
+         <div class="space-y-6">
+          <div>
+            <h2 id="modal-projTitle" class="anton uppercase text-3xl text-[var(--accent-primary)] tracking-tigher">project title</h2>
+            <p id="modal-role" class="text-green-500 text-xs font-mono mt-2">ROLE: Developer</p>
+          </div>
+
+          <div class="space-y-2">
+            <h3 class="anton uppercase tracking-widest border-l-4 pl-2 border-[var(--accent-primary)]">OVERVIEW</h3>
+            <p id="modal-desc" class="text-xs text-white/70 leading-relaxed">Detailed desc here .... </p>
+          </div>
+
+          <div class="space-y-2">
+            <h3 class="anton uppercase tracking-widest border-l-4 pl-2 border-[var(--accent-primary)]">CONTRIBUTIONS</h3>
+            <ul id="modal-contrib" class="text-xs text-white/70 list-disc list-inside space-y-1">
+              <li> Developed responsive UI components using React</li>
+              <li> Implemented RESTful APIs for data fetching</li>
+              <li> Collaborated with designers to create intuitive user experiences</li>
+            </ul>
+          </div>
+
+          <div id="modal-tags" class="flex flex-wrap gap-2 pt-4 text-xs">
           </div>
         </div>
 
       </div>
     </div>
-  </section>
-
-  <p class="text-center">
-    SYSTEM ONLINE ~ TRISHIA @ 2026
-  </p>
-
-</div>
-
-<!-- ========== PROJECT MODAL ========== -->
-<div id="projectModal" 
-  class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center backdrop-blur">
-  <div class="glass relative max-w-4xl mx-auto mt-20 p-8 w-[90%] animate-modal">
-    <button onclick="closeProject(1)" class="absolute top-4 right-4 cursor-pointer">✕</button>
-    <h2 id="modalTitle" class="text-2xl text-violet-400 neon mb-4 tracking-widest"></h2>
-    <p id="modalDesc" class="text-sm text-gray-400 leading-relaxed"></p>
-
-    <div class="mt-6">
-      <a id="projLink" class="border border-red-500 px-4 py-2 text-xs hover:border-violet-500 transition">OPEN SITE</a>
-    </div>
   </div>
-</div>
 
 <script>
-  lucide.createIcons();
-  let percent = 0;
-  const percentEl = document.getElementById('percent');
-  const loadbarEl = document.getElementById('loadbar');
-  const splash = document.getElementById('splash');
-  const app = document.getElementById('app');
+  import './style.css'
 
-  const interval = setInterval(() => {
-    percent++;
-    percentEl.textContent = percent + '%';
-    loadbarEl.style.width = percent + '%';
-
-    if (percent >= 100) {
-      clearInterval(interval);
-      splash.classList.add('fade-out');
-      setTimeout(() => {
-        splash.remove();
-        app.classList.remove('opacity-0', 'pointer-events-none');
-        document.body.classList.remove('overflow-hidden');
-      }, 300); 
-    }
-  }, 20); 
-
-  const hudLeft = document.querySelector('.hud-left');
-  const hudRight = document.querySelector('.hud-right');
-
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    hudLeft.style.transform = `translateY(${y * 0.2}px)`;
-    hudRight.style.transform = `translateY(${y * 0.35}px)`;
-  });
-
-  const reveals = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  reveals.forEach(el => observer.observe(el));
-
-  const navbar = document.getElementById('navbar');
-  const welcome = document.getElementById('welcome');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > welcome.offsetHeight - 100) {
-      navbar.classList.remove('opacity-0', 'pointer-events-none');
-    } else {
-      navbar.classList.add('opacity-0', 'pointer-events-none');
+// NAVBAR 
+const navbar = document.getElementById('navbar');
+const navLinks = document.querySelectorAll('nav a');
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - (window.innerHeight / 2);
+    if (window.pageYOffset >= sectionTop) {
+      current = section.getAttribute('id');
     }
   });
-
-  document.querySelectorAll('.contact-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const text = item.textContent.split(': ')[1];
-      navigator.clipboard.writeText(text).then(() => {
-        const original = item.textContent;
-        setTimeout(() => {
-        item.textContent = 'COPIED TO CLIPBOARD!';
-          item.textContent = original, 1000;
-        });
-      });
-    });
+  navLinks.forEach(a => {
+    a.classList.remove('text-purple-500', 'scale-105');
+    if (current && a.getAttribute('href').includes(current)) {
+      a.classList.add('text-purple-500', 'scale-105');
+    }
   });
-
-
-  const modal = document.getElementById('projectModal');
-  const projects = [
-    {
-      title: 'PROJECT NAME',
-      desc: 'Detailed project description goes here.',
-      projLink: "#",
-    },
-  ];
-    
-  function openProject(index) {
-    const p = projects[index];
-    document.getElementById('modalTitle').textContent = p.title;
-    document.getElementById('modalDesc').textContent = p.desc;
-    document.getElementById('projLink').href = p.projLink;
-    document.getElementById('projectModal').classList.remove('hidden');
-    
-    modal.classList.remove('hidden');
-    document.body.classList.add('overflow-hidden');
+  if (window.pageYOffset > 150) {
+    navbar.classList.add('sticky-nav');
+  } else {
+    navbar.classList.remove('sticky-nav');
   }
+});
 
-  function closeProject() {
-    modal.classList.add('hidden');
-    document.body.classList.remove('overflow-hidden');
-  }
+// REVEAL ANIMATION
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// SMOOTH SCROLL 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      // Offset for the sticky navbar
+      const headerOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// COPY TO CLIPBOARD
+window.copytoClipboard = function(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Mobile number copied to clipboard!');
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
+
+// PROJ MODAL
+const projData = {
+  'lumina': {
+    title: "Lumina Alert Website",
+    role: "Group Project",
+    images: ["src/lumina-welcome.jpg","src/lumina.jpg"],
+    desc: "A website for Lumina Alert, allowing admins or operators to register their contact information to be alerted when prototype detects driver drowsiness.",
+    contrib: ["XX", "XX", "XX"],
+    tags: ["HTML", "CSS", "JS"],
+    github: "https://github.com/tijeyy/lumisim",
+    live: "https://lumisim.netlify.app"
+  },
+  'irrigation': {
+    title: "IoT Smart Irrigation System",
+    role: "Solo Project",
+    images: ["src/iot.jpg","src/iot-aboutPage.jpg","src/iot-systemOFF.jpg","src/iot-systemON.jpg"],
+    desc: "A mobile application prototype for remote soil monitoring and irrigation control.",
+    contrib: ["XX", "XX", "XX"],
+    tags: ["MIT App Inventor", "IoT", "Firebase"],
+    github: "https://drive.google.com/drive/folders/1oFvON7l7Whnxi9DGHtBkhnRyGEVNwmtl?usp=sharing",
+    live: "https://drive.google.com/file/d/1G0w-7qnGVvQzGc_6EnI7DWZwM40Nv5Ne/view?usp=drive_link"
+  },
+  'bastorage': {
+    title: "Bastorage: Laboratory Inventory System",
+    role: "Group Project",
+    images: ["src/bastorage.jpg","src/bastorage-gallery.jpg","src/bastorage-table.jpg"],
+    desc: "A full-stack web application for managing laboratory inventory and equipment.",
+    contrib: ["XX", "XX", "XX"],
+    tags: ["HTML", "CSS", "JS"],
+    github: "https://github.com/tijeyy/bastorage",
+    live: "https://bastorage.netlify.app"
+  },
+  'plugwise': {
+    title: "Plugwise: Smart Home Automation",
+    role: "Group Project",
+    images: ["src/plugwise.jpg","src/plugwise1.jpg","src/plugwise2.jpg","src/plugwise3.jpg"],
+    desc: "A smart outlet system that allows users to control the power for multiple sockets—either manually or automatically (timed)—and monitor outlet status (active/inactive)",
+    contrib: ["XX", "XX", "XX"],
+    tags: ["HTML", "CSS", "JS"],
+    github: "https://github.com/tijeyy/plugWise",
+    live: "https://plugwise.netlify.app"
+  },
+};
+function openProject(id) {
+  const data = projData[id];
+  if (!data) return;
+
+  document.getElementById('modal-projTitle').innerText = data.title;
+  document.getElementById('modal-role').innerText = `ROLE: ${data.role}`;
+  document.getElementById('modal-desc').innerText = data.desc;
+  const mainImg = document.getElementById('modal-mainImage'); 
+  mainImg.src = data.images[0];
+
+  document.getElementById('proj-gitLink').href = data.github;
+  document.getElementById('proj-liveLink').href = data.live;
+
+  document.getElementById('modal-contrib').innerHTML = data.contrib.map(item => `<li>${item}</li>`).join('');
+  document.getElementById('modal-tags').innerHTML = data.tags.map(tag => 
+    `<span class="bg-purple-500/20 text-[#C77DFF] px-2 py-1 rounded-lg border border-purple-500/30">${tag}</span>`
+  ).join(' ');
+
+  const thumbContainer = document.getElementById('modal-otherImages');
+  thumbContainer.innerHTML = data.images.map((imgSrc, index) => `
+    <img src="${imgSrc}" onclick="changeModalImg('${imgSrc}')" alt="Thumbnail ${index + 1}" 
+    class="h-16 w-full object-cover rounded-md border border-white/50 cursor-pointer hover:border-purple-500 transition-all opacity-60 hover:opacity-100">
+  ` ).join('');
+
+  document.getElementById('proj-modal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('proj-modal').classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+function changeModalImg(src) {
+  const mainImg = document.getElementById('modal-mainImage');
+  mainImg.style.opacity = 0;
+  setTimeout(() => {
+    mainImg.src = src;
+    mainImg.style.opacity = '1';
+  }, 200)
+}
+
+
+window.openProject = openProject;
+window.closeModal = closeModal;
+window.changeModalImg = changeModalImg;
 </script>
 
-</div>
-</body>
+
 </html>
+
+

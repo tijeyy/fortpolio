@@ -1,435 +1,618 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>forfolio</title>
+<html class="dark" lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>forfolio</title>  
   <link href="/src/style.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Anton&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script type="module" src="/src/main.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script id="tailwind-config">
+          tailwind.config = {
+              darkMode: "class",
+              theme: {
+                  extend: {
+                      "colors": {
+                          "primary": "#8528d9",
+                          "primary-fixed": "#f0dbff",
+                          "on-secondary-fixed": "#001f27",
+                          "background": "#0d0d1a",
+                          "on-secondary": "#003642",
+                          "surface-container-highest": "#343342",
+                          "outline-variant": "#4c4354",
+                          "secondary": "#a2e7ff",
+                          "on-secondary-container": "#005669",
+                          "on-tertiary-container": "#d9d6ff",
+                          "tertiary-fixed-dim": "#c3c0ff",
+                          "on-error": "#690005",
+                          "on-background": "#e3e0f4",
+                          "surface-container-lowest": "#0d0d1a",
+                          "outline": "#988da0",
+                          "on-tertiary-fixed-variant": "#3323cc",
+                          "on-surface-variant": "#cfc2d7",
+                          "surface-container-low": "#1a1a28",
+                          "inverse-on-surface": "#2f2f3d",
+                          "secondary-fixed": "#b4ebff",
+                          "surface-container-high": "#292937",
+                          "secondary-container": "#00d2fd",
+                          "primary-fixed-dim": "#dcb8ff",
+                          "surface-dim": "#12121f",
+                          "inverse-primary": "#8426d8",
+                          "on-primary-fixed-variant": "#6800b4",
+                          "on-tertiary": "#1d00a5",
+                          "surface-variant": "#343342",
+                          "surface-tint": "#dcb8ff",
+                          "inverse-surface": "#e3e0f4",
+                          "on-secondary-fixed-variant": "#004e5f",
+                          "on-surface": "#e3e0f4",
+                          "surface-bright": "#383847",
+                          "tertiary-container": "#4e45e4",
+                          "on-error-container": "#ffdad6",
+                          "surface-container": "#1e1e2c",
+                          "error-container": "#93000a",
+                          "primary-container": "#8528d9",
+                          "error": "#ffb4ab",
+                          "on-tertiary-fixed": "#0f0069",
+                          "on-primary-fixed": "#2c0051",
+                          "tertiary-fixed": "#e2dfff",
+                          "surface": "#12121f",
+                          "secondary-fixed-dim": "#3cd7ff",
+                          "on-primary-container": "#ead1ff",
+                          "tertiary": "#c3c0ff",
+                          "on-primary": "#490081"
+                      },
+                      "borderRadius": {
+                          "DEFAULT": "0.5rem",
+                          "lg": "0.5rem",
+                          "xl": "0.75rem",
+                          "full": "9999px"
+                      },
+                      "spacing": {
+                          "stack-lg": "3rem",
+                          "container-max": "1280px",
+                          "gutter": "2rem",
+                          "section-padding": "8rem",
+                          "stack-md": "1.5rem",
+                          "margin-base": "1.5rem",
+                          "stack-sm": "0.5rem"
+                      },
+                      "fontFamily": {
+                          "display-lg": ["Space Grotesk"],
+                          "headline-lg": ["Space Grotesk"],
+                          "headline-md": ["Space Grotesk"],
+                          "body-md": ["Inter"],
+                          "body-lg": ["Inter"],
+                          "label-md": ["Space Grotesk"],
+                          "headline-lg-mobile": ["Space Grotesk"],
+                          "headline-sm": ["Space Grotesk"],
+                          "anton": ["Anton"],
+                          "mono": ["Fira Code", "monospace"]
+                      }
+                  },
+              },
+          }
+      </script>
+
 </head>
 
-<body>
-  <!-- ============ TOP / WELCOME SECTION ============= -->
-  <section class="bg-[var(--bg-hero)] border-t border-r border-l border-white/30 rounded-3xl mx-4 my-4 md:mx-18 md:my-8 px-4 md:px-6 overflow-hidden 
-      relative flex flex-col min-h-[90vh]">
-    <!-- navbar -->
-    <nav id="navbar" class="flex flex-col md:flex-row items-center justify-between py-8 px-8 z-50">
-      <span class="anton bg-black border border-[var(--accent-primary)] text-[var(--accent-light)] uppercase
-            text-xs font-bold px-10 py-3 rounded-full tracking-widest">TIJEY</span>
-      
-      <div class="bg-black border border-white/80 h-10 md:h-12 w-full max-w-2xl text-white overflow-hidden
-              flex justify-around items-center gap-2 md:gap-10 px-4 md:px-6 py-2 rounded-full text-[9px] md:text-xs tracking-widest">
-        <span class="hidden md:inline w-2 h-2 rounded-full bg-white"></span>
-        <a href="#home" class="anton px-1 md:px-2">HOME</a>
-        <a href="#about" class="anton px-1 md:px-2">ABOUT</a>
-        <a href="#projects" class="anton px-1 md:px-2">PROJECTS</a>
-        <a href="#contact" class="anton px-1 md:px-2">CONTACT</a>
-        <span class="hidden md:inline w-2 h-2 rounded-full bg-white"></span>
+<body class="font-body-md text-on-background">
+<!-- ============ SPLASH ============= -->
+<section id="splash" class="fixed bg-black inset-0 z-50 flex justify-center items-center scanlines noise boot-flicker">
+
+  <div class="flex flex-col items-center space-y-14">
+
+    <!-- LOAD SECTION -->
+    <div class="relative w-[700px] max-w-full px-6">
+      <!-- left float -->
+      <div class="absolute -left-8 top-1/2 -translate-y-1/2 space-y-4 animate-float">
+        <div class="relative w-3 h-3 border border-red-500">
+          <div class="bg-red-500 w-1 h-1 -translate-4"></div>
+        </div>
+        <!-- line (-|) -->
+        <div class="relative bg-red-500 w-1 h-6">
+          <div class="absolute bg-red-500 w-10 h-[2px] top-1/2 right-full -translate-y-1/2"> ... </div>
+        </div>
+        <div class="relative w-2 h-2 bg-red-500">
+          <div class="w-4 h-2 border border-red-500 -translate-x-5 translate-y-5">~</div>
+        </div>
       </div>
 
-      <div class="hidden md:flex gap-4">
-        <button class="w-10 h-10 rounded-full shadow-[0_3px_5px_#757575] flex items-center justify-center text-white text-xs
-              hover:scale-110 hover:text-purple-300 transition duration-300">
-              <a href="https://github.com/tijeyy" target="_blank">
-                <i class="fa-brands fa-github text-xl"></i></a>  
-          </button>
-        <button class="w-10 h-10 rounded-full shadow-[0_3px_5px_#757575] flex items-center justify-center text-white text-xs 
-              hover:scale-110 hover:text-purple-300 transition duration-300">
-              <a href="https://www.linkedin.com/in/trishia-javier-55761939b/" target="_blank">
-                <i class="fa-brands fa-linkedin text-xl"></i></a>
-        </button>
+      <!-- right float -->
+      <div class="absolute -right-12 top-1/2 -translate-y-1/2 space-y-4 animate-float">
+        <div class="relative w-3 h-3 border border-red-500">
+          <div class="bg-red-500 w-1 h-1 -translate-4 -translate-x-[-22px]">~</div>
+        </div>
+        <!-- line (|-) -->
+        <div class="relative bg-red-500 w-1 h-6">
+          <div class="absolute bg-red-500 w-10 h-[2px] top-1/2 left-full"></div>
+        </div>
+        <div class="w-2 h-2 bg-red-500">
+          <div class="w-4 h-2 border border-red-500 translate-x-5 translate-y-5">...</div>
+        </div>
       </div>
-    </nav>
 
-    <div id="home" class="flex flex-col lg:flex-row items-center justify-around gap-12 mb-10 pt-6 md:pt-10">
-      <!-- LEFT -->
-      <div class="w-full lg:w-1/2 space-y-6 pt-2 px-8 md:px-8 order-2 lg:order-1 text-center lg:text-left">
+      <!-- loading text and % count -->
+      <div class="flex justify-between text-xs mb-4">
+        <span class="tracking-widest text-violet-500">INITIALIZING INTERFACE ...</span>
+        <span id="percent" class="tracking-widest text-violet-500">0%</span>
+      </div>
+      <!-- loading bar -->
+      <div class="w-full h-2 bg-red-900/30 overflow-hidden">
+        <div id="loadbar" class="h-full bg-gradient-to-r from-red-500 to-violet-700"></div>
+      </div>
+
+      <div class="text-xs text-center tracking-widest text-red-400 mt-6 animate-glitch">
+        SYNCING DATA STREAMS
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<div id="app" class="hidden">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10">
+    <div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+    <span class="font-anton text-2xl tracking-widest text-primary">TIJEY</span>
+      <div class="hidden md:flex gap-8 items-center">
+        <a class="hover:text-primary" href="#home">Home</a>
+        <a class="hover:text-primary" href="#about">About</a>
+        <a class="hover:text-primary" href="#skills">Skills</a>
+        <a class="hover:text-primary" href="#experience">Experience</a>
+        <a class="hover:text-primary" href="#projects">Projects</a>
+        <a class="hover:text-primary" href="#contact">Contact</a>
+      </div>
+      <div class="flex gap-4">
+        <span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">terminal</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center py-20" id="home">
+    <div class="container-max mx-auto px-gutter relative z-10">
+      <div class="mb-10">
         <div class="flex items-center justify-center lg:justify-start gap-3 mb-4">
           <span class="relative flex h-3 w-3">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
           </span>
           <p class="font-mono text-green-500 tracking-[0.2em] uppercase text-[10px]">
-            Status: Open for Internships  Portfolio_v1.0.exe
+            Status: Open to Opportunities // Portfolio_v3.0.exe
           </p>
         </div>
-        <h2 class="text-3xl md:text-5xl uppercase leading-tight tracking-tight">
-          Driven by curiosity, <br class="hidden md:block">
-          <span class="text-[var(--accent-light)]"> defined by the systems I build</span></h2>
-        <p class="text-sm leading-relaxed">
-          Computer Engineering student with a passion for technology.
-        </p>
-        <p class="text-sm md:text-base leading-relaxed max-w-md mx-auto lg:mx-0">
-          Currently exploring the intersection of web development and system design, with a focus on creating intuitive and visually appealing user interfaces. 
-        </p>
-        <a href="/JAVIER,TRISHIA_RESUME.pdf" target="_blank" rel="noopener noreferrer" 
-          class="anton bg-black shadow-[0_2px_5px_var(--accent-light)] text-xs mt-4 px-12 py-3 rounded-full tracking-widest uppercase
-          inline-block hover:scale-105 hover:text-purple-300 transition duration-300 cursor-pointer">
-          VIEW CV
-        </a>
-      </div>
-
-    <!-- RIGHT = ID CARD -->
-    <div class="relative group w-full max-w-[340px] md:max-w-sm px-4 order-1 lg:order-2">
-      <div class="relative w-full bg-[var(--bg-card)] border border-white/20 rounded-2xl p-6 shadow-2xl transition-all duration-500 hover:shadow-[#9639D9]/20 group-hover:rotate-1">
-
-      <!-- id top header -->
-        <div class="flex justify-between items-start mb-6">
-          <div class="space-y-1">
-            <h3 class="uppercase tracking-tighter text-[var(--accent-primary)] text-xl leading-none">IDENTIFICATION</h3>
-            <P class="uppercase tracking-[0.3em] text-[10px] font-mono text-white/40">System Developer Access</P>
-          </div>
-          <div class="text-right">
-            <p class="text-[8px] text-green-500">VER. 2026.04</p>
-            <span class="absolute top-0 right-0 p-4 opacity-12">
-              <i class="fa-solid fa-microchip text-5xl"></i>
-            </span>
-          </div>
-        </div>
-
-      <!-- id center content / pic + details -->
-        <div class="flex gap-6 items-center">
-          <div>
-            <img src="src/me.jpg" alt="" 
-                class="id-photo w-24 h-32 md:w-28 md:h-36 rounded-lg">
-          </div>
-
-          <div class="space-y-4 flex-1">
-            <div>
-              <p class="uppercase tracking-widest text-[8px] text-white/40 font-bold">Surname / Name</p>
-              <p class="anton uppercase tracking-wide text-sm">Javier, Trishia Jane</p>
-            </div>
-            <div>
-              <p class="uppercase tracking-widest text-[8px] text-white/40 font-bold">Class / Role</p>
-              <p class="tracking-wide text-xs text-[var(--accent-light)] font-medium italic">Computer Engineer</p>
-            </div>
-            <div>
-              <p class="uppercase tracking-widest text-[8px] text-white/40 font-bold">Location</p>
-              <p class="uppercase tracking-wide text-xs text-white/80">Cavite, PH</p>
-            </div>
-
-            <div class="pt-2 opacity-40">
-              <i class="fa-solid fa-barcode text-xl"></i>
-            </div>
-          </div>
-        </div>
-
-      <!-- id bottom -->
-        <div class="absolute pt-2 bottom-4 left-6 right-6 flex justify-between items-center border-t border-white/5">
-          <p class="text-[8px] font-mono text-white/30"> ISS_DATE: XX_AUG_202X </p>
-          <p class="text-[8px] font-mono text-[var(--accent-primary)]">COMP.ENGR</p>
-        </div>
-
-      </div>
-    </div>
-
-    </div>
-
-    <h1 class="opacity-80 text-center text-[60px] md:text-[100px] lg:text-[130px] text-[var(--accent-primary)] mb-[-10px] md:mb-[-20px] uppercase leading-none tracking-tighter">
-      MY PORTFOLIO
-    </h1> 
-  </section>
-
-  <!-- =============== ABOUT SECTION ============== -->
-  <section id="about" class="mx-auto max-w-7xl px-6 py-20 gap-20 flex flex-col lg:flex-row justify-center items-center lg:items-start reveal">
-
-    <div id="desc" class="w-full max-w-lg space-y-6 md:space-y-10">
-      <div>
-        <h2 class="uppercase text-5xl md:text-6xl font-light">meet her!</h2>
-        
-        <div class="font-mono text-xs bg-[var(--bg-card)] border border-white/20 rounded-lg p-4 mt-6">
-          <div class="flex gap-1.25">
-            <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-          </div>
-
-          <p class="text-green-500 mt-3">trishia@cpe:~$ <span class="text-white">aboutHer.txt</span> </p>
-          <p class="text-white/60 mt-1">
-            Hi! I'm Trish, a Computer Engineering student from Baste Cavite.
-            My journey in tech started with a curiosity for how things work and a desire to create. 
-          </p>
-          <p class="text-white/70 leading-relaxed font-light mt-2">
-            I'm passionate about technology and eager to learn and grow in the field of software development. 
-            I have experience in web development, programming languages, and a strong foundation in computer engineering principles. 
-            I'm excited to connect with like-minded individuals and explore opportunities in the tech industry.
-          </p>
-
-          <p class="text-green-500 mt-3">trishia@cpe:~$ _ </p>        
-        </div>
-      </div>
-
-      <!-- SKILLS -->
-      <div id="skills">
-        <h3 class="text-[var(--accent-light)] text-xl md:text-2xl uppercase mb-6 pt-8 tracking-widest">Skills</h3>
-        <div class="grid grid-cols-5 gap-5 justify-items-center">
-          
-          <i class="fa-brands fa-html5 text-5xl mb-4 text-orange-500"></i>
-          <i class="fa-brands fa-css3-alt text-5xl mb-4 text-blue-500"></i>
-          <i class="fa-brands fa-js text-5xl mb-4 text-yellow-400"></i>
-          <i class="fa-brands fa-python text-5xl mb-4 text-blue-600"></i>
-          <i class="fa-brands fa-java text-5xl mb-4 text-brown"></i>
-
-        </div>
-
-        <h4 class="text-[var(--accent-light)] text-md uppercase mb-6 pt-8 tracking-widest">Soft Skills</h4>
-
-        <div class="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3 text-center items-center text-purple-400">
-          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Communication</span>
-          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Team Collaboration</span>
-          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Problem Solving</span>
-          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Time Management</span>
-          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Adaptability</span>
-          <span class=" bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-xl">Eager to Learn</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- EDUC + EXPE -->
-    <div id="education" class="bg-[var(--bg-card)] border border-white/30 rounded-3xl w-full max-w-sm p-8 
-              space-y-10 shadow-[0_2px_5px_var(--accent-primary)]">
-
-      <div>
-        <h3 class="text-2xl text-[var(--accent-light)] uppercase tracking-widest mb-6 pb-4 border-b border-[var(--accent-light)]">
-          Education
-        </h3>
-        
-        <div class="relative border-l-2 border-[var(--accent-primary)] ml-2 pb-2 space-y-8">
-          <div class="relative pl-8">
-            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-black border-2 border-[var(--accent-light)] shadow-[0_0_10px_var(--accent-primary)]"></span>
-              <h4 class="text-sm text-white uppercase tracking-widest pb-2">BS Computer Engineering</h4>
-              <p class="text-xs text-white/70 leading-relaxed pb-2">San Sebastian College Recoletos-de Cavite</p>
-              <p class="text-xs text-white/70 pb-2">2021-2026</p>
-          </div>
-          <div class="relative pl-8">
-            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-black border-2 border-[var(--accent-light)] shadow-[0_0_10px_var(--accent-primary)]"></span>
-              <h4 class="text-sm text-white uppercase tracking-widest pb-2">ICT in Mobile App and Web Development</h4>
-              <p class="text-xs text-white/70 leading-relaxed pb-2">STI College Rosario</p>
-              <p class="text-xs text-white/70 pb-2">2019-2021</p>
-          </div>
-        </div>
+        <h1 class="font-anton text-7xl md:text-8xl mb-12 leading-[0.9] text-white uppercase">
+            MY PORTFOLIO
+        </h1>
       </div>
       
-      <div>
-        <h3 class="text-right text-2xl text-[var(--accent-light)] uppercase tracking-widest pb-4 mb-6 border-b border-[var(--accent-light)]">
-          Experience
-        </h3>
-        <div class="relative border-l-2 border-[var(--accent-primary)] ml-2 pb-2 space-y-8">
-          <div class="relative pl-8">
-            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-black border-2 border-[var(--accent-light)] shadow-[0_0_10px_var(--accent-primary)]"></span>
-              <h4 class="text-sm text-white uppercase tracking-widest pb-2">Design Project Prototype</h4>
-              <p class="text-xs text-white/70 leading-relaxed pb-2">San Sebastian College Recoletos-de Cavite</p>
-              <p class="text-xs text-white/70 pb-2">2025-2026</p>
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+        <div>
+        <!-- Terminal Mockup -->
+          <div class="glass rounded-lg border border-white/10 overflow-hidden max-w-lg mb-10 shadow-2xl">
+            <div class="bg-white/5 px-4 py-2 flex gap-2 border-b border-white/10">
+              <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+            </div>
+            <div class="p-6 font-mono text-sm leading-relaxed text-secondary/80">
+              <p class="mb-2"><span class="text-primary">trishia@cpe:~$</span> whoami</p>
+              <p class="text-white mb-4">Computer Engineer. Problem Solver. Hardware-Software Architect. Passionate about bridging physical and digital worlds with precision.</p>
+              <p class="mb-2"><span class="text-primary">trishia@cpe:~$</span> locate skills</p>
+              <p class="text-white">... [Java, JS, Python, IoT, Embedded Systems]</p>
+              <p><span class="text-primary">trishia@cpe:~$</span> <span class="typing"></span></p>
+            </div>
           </div>
-          <div class="relative pl-8">
-            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-black border-2 border-[var(--accent-light)] shadow-[0_0_10px_var(--accent-primary)]"></span>
-              <h4 class="text-sm text-white uppercase tracking-widest pb-2">Academic Team Projects</h4>
-              <p class="text-xs text-white/70 leading-relaxed pb-2">Collaborated with groupmates on development, system logic, and project presentations.</p>
+          <div class="flex gap-4">
+            <a class="px-8 py-4 bg-primary text-white font-anton tracking-widest hover:bg-primary/80 transition-all" href="#projects">VISIT SYSTEMS</a>
+            <a class="px-8 py-4 border border-white/20 font-anton tracking-widest hover:bg-white/5 transition-all text-white" 
+              href="/Javier,Trishia_RESUME.pdf" target="_blank" rel="noopener noreferrer">VIEW CV</a>
           </div>
         </div>
-      </div>
 
-      <div class="text-center uppercase italic text-sm text-[var(--accent-primary)] tracking-widest pt-2 cursor-pointer hover:opacity-70 transition">
-        <a href="#projects" class="text-[var(--accent-primary)] hover:text-[var(--accent-light)] hover:scale-105">Explore projects ↓</a>
-      </div>
+        <div class="relative flex justify-center md:justify-end items-center">
+          <!-- Futuristic ID Card -->
+          <div class="id-card-float relative w-full max-w-[340px] aspect-[1/1.5] glass rounded-2xl p-1 border-white/20 glow-purple overflow-hidden">
+            <div class="scanline"></div>
+            <div class="h-full w-full rounded-2xl bg-surface-container-lowest flex flex-col p-6 relative overflow-hidden">
+              <div class="flex justify-between items-start mb-6">
+                <div class="font-anton text-lg tracking-widest opacity-40 text-white">CPE-ID</div>
+                <div class="w-8 h-8 opacity-20 text-white">
+                  <span class="material-symbols-outlined text-4xl">memory</span>
+                </div>
+              </div>
+              <div class="w-full aspect-square rounded-lg overflow-hidden border border-white/10 mb-6 bg-surface-bright">
+              <img alt="me pic" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="src/m.jpg"/>
+              </div>
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-anton text-xl tracking-wider text-white">TRISHIA JANE JAVIER</h3>
+                <p class="text-primary font-mono text-xs uppercase tracking-tighter">Computer Engineer // PH-CAV</p>
+              </div>
+              <div class="flex items-end justify-between">
+                <div class="flex flex-col gap-1">
+                  <div class="w-16 h-px bg-white/20"></div>
+                  <div class="w-24 h-px bg-white/20"></div>
+                  <div class="w-12 h-px bg-white/20"></div>
+                  <span class="font-mono text-[8px] opacity-30 mt-1 text-white">SN: 2021-SSC-REC-001</span>
+                </div>
+                <div class="w-10 h-10 border border-white/10 rounded flex items-center justify-center opacity-30 text-white">
+                  <span class="material-symbols-outlined text-sm">qr_code_2</span>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
 
+      </div>
     </div>
-
   </section>
 
-  <!-- ============ PROJECTS SECTION ============= -->
-  <section id="projects" class="mx-auto max-w-7xl px-6 py-6 text-white/80 reveal">
-      <h1 class="text-center mt-auto text-[60px] md:text-[100px] lg:text-[130px] text-[var(--accent-primary)] uppercase leading-none tracking-tighter">
-        PROJECTS
-      </h1> 
-    
-    <div class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 py-10 gap-8">
-
-      <div onclick="openProject('lumina')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_var(--accent-primary)] transition-all group">
-        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">
-          <img src="src/lumina-welcome.jpg" alt="Lumina" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
+  <!-- About Section (BIO_DATA) -->
+  <section class="py-section-padding bg-surface-container-lowest" id="about">
+    <div class="max-w-container-max mx-auto px-gutter">
+    <h2 class="font-anton text-5xl mb-12 tracking-widest text-white uppercase">BIO_DATA</h2>
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-6">
+          <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              Hi! I'm Trish, my journey in tech started with a curiosity for how things work and a desire to create. 
+          </p>
+          <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              I'm passionate about technology and eager to learn and grow in the field of software development. 
+              I have experience in web development, programming languages, and a strong foundation in computer engineering principles. 
+              I'm excited to connect with like-minded individuals and explore opportunities in the tech industry.
+          </p>
         </div>
-        <h2 class="text-2xl text-white uppercase group-hover:text-[var(--accent-primary)] transition-colors">Lumina Alert Website</h2>
-        <p class="text-sm mt-1 text-[var(--accent-primary)]"><i class="fas fa-users mr-1"></i>Group Project</p>
-        <p class="text-xs text-white/70 leading-relaxed mt-2">
-          Developed a responsive website for Lumina Alert, a disaster preparedness and response system. 
-          Implemented features such as real-time alerts, interactive maps, and resource management using HTML, CSS, and JavaScript.
-        </p>
-        <div class="flex flex-wrap gap-2 mt-4 text-purple-400">
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">HTML</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">CSS</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">JavaScript</span>
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-1 glass p-8 rounded-xl border border-white/10 hover:border-primary/50 transition-colors">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4">precision_manufacturing</span>
+            <h3 class="font-anton text-lg mb-2 text-white">HARDWARE</h3>
+            <p class="text-xs text-on-surface-variant opacity-70">IoT, Embedded Systems, Circuitry, Troubleshooting</p>
+          </div>
+          <div class="flex-1 glass p-8 rounded-xl border border-white/10 hover:border-secondary/50 transition-colors">
+            <span class="material-symbols-outlined text-secondary text-4xl mb-4">terminal</span>
+            <h3 class="font-anton text-lg mb-2 text-white">SOFTWARE</h3>
+            <p class="text-xs text-on-surface-variant opacity-70">Java, Python, JS, PHP, Database Mgmt</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="py-section-padding" id="skills">
+    <div class="max-w-container-max mx-auto px-gutter mb-16">
+      <h2 class="font-anton text-5xl mb-4 tracking-widest text-white uppercase text-center">TECHNICAL SKILLS</h2>
+      <p class="text-on-surface-variant font-mono text-sm opacity-60 text-center">Listing system dependencies...</p>
+    </div>
+  <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Programming -->
+    <div class="glass p-8 rounded-xl border border-white/5">
+      <div class="flex items-center gap-3 mb-6 text-primary">
+        <span class="material-symbols-outlined">code</span>
+        <h3 class="font-anton text-lg tracking-widest uppercase">Programming</h3>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Java</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">JS</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Python</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">PHP</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">C/C++</span>
+      </div>
+    </div>
+    <!-- Web Technologies -->
+    <div class="glass p-8 rounded-xl border border-white/5">
+      <div class="flex items-center gap-3 mb-6 text-secondary">
+        <span class="material-symbols-outlined">language</span>
+        <h3 class="font-anton text-lg tracking-widest uppercase">Web Technologies</h3>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">HTML</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">CSS</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Bootstrap</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Firebase</span>
+      </div>
+    </div>
+    <!-- AI & Productivity -->
+    <div class="glass p-8 rounded-xl border border-white/5">
+      <div class="flex items-center gap-3 mb-6 text-primary">
+        <span class="material-symbols-outlined">smart_toy</span>
+        <h3 class="font-anton text-lg tracking-widest uppercase">AI &amp; Productivity</h3>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Gemini</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">ChatGPT</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Claude</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Perplexity</span>
+      </div>
+    </div>
+    <!-- Engineering Tools -->
+    <div class="glass p-8 rounded-xl border border-white/5">
+      <div class="flex items-center gap-3 mb-6 text-secondary">
+        <span class="material-symbols-outlined">build</span>
+        <h3 class="font-anton text-lg tracking-widest uppercase">Software Engineering Tools</h3>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Git</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">VS Code</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Figma</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">AutoCAD</span>
+      </div>
+    </div>
+    <!-- Core Engineering -->
+    <div class="glass p-8 rounded-xl border border-white/5 lg:col-span-2">
+      <div class="flex items-center gap-3 mb-6 text-primary">
+        <span class="material-symbols-outlined">settings_suggest</span>
+        <h3 class="font-anton text-lg tracking-widest uppercase">Core Engineering</h3>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Hardware-Software Integration</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">IoT Architectures</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">System Testing</span>
+        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-on-surface">Troubleshooting</span>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- Experience Section (DEPLOYMENT_HISTORY) -->
+  <section class="py-section-padding bg-surface-container-low" id="experience">
+    <div class="max-w-container-max mx-auto px-gutter">
+    <h2 class="font-anton text-5xl mb-16 tracking-widest text-white text-center uppercase">DEPLOYMENT_HISTORY</h2>
+      <div class="grid lg:grid-cols-2 gap-stack-lg">
+
+      <!-- EXPERIENCE Column -->
+      <div>
+      <h3 class="font-mono text-primary mb-8 uppercase tracking-widest">// EXPERIENCE</h3>
+        <div class="relative pl-8 ml-4 border-l border-white/10">
+          <div class="relative mb-12">
+            <div class="absolute -left-10 top-2 w-4 h-4 rounded-full bg-primary glow-purple border-4 border-background"></div>
+            <div class="glass p-8 rounded-xl border border-white/5">
+              <span class="text-secondary font-mono text-xs mb-2 block uppercase">APR - JUN 2026</span>
+              <h4 class="font-anton text-2xl text-white mb-1">Schneider Electric</h4>
+              <p class="text-primary font-mono text-sm uppercase mb-4">Test and Equipment Technician Intern</p>
+              <ul class="space-y-3 text-on-surface-variant text-sm list-disc list-inside font-body-md opacity-80">
+                <li>Assist in the design and development of testing procedures and equipment.</li>
+                <li>Performing maintenance and troubleshooting on testing systems.</li>
+                <li>Collaborate with engineers to optimize production efficiency.</li>
+                <li>Documentation of test results and technical specifications.</li>
+              </ul>
+            </div>
+          </div>
+        <div class="relative">
+          <div class="absolute -left-10 top-2 w-4 h-4 rounded-full bg-primary/30 border-4 border-background"></div>
+            <div class="glass p-8 rounded-xl border border-white/5">
+              <span class="text-secondary font-mono text-xs mb-2 block uppercase">TEAM COLLABORATOR</span>
+              <h4 class="font-anton text-2xl text-white mb-1">Academic Team Projects</h4>
+              <p class="text-on-surface-variant text-sm font-body-md opacity-80">Collaborated on various IoT and automated systems across curriculum cycles.</p>
+            </div>
+        </div>
         </div>
       </div>
 
-      <div onclick="openProject('irrigation')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_var(--accent-primary)] transition-all group">
-        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">     
-          <img src="src/iot.jpg" alt="IoT" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
-        </div>
-        <h2 class="text-2xl text-white uppercase group-hover:text-[var(--accent-primary)] transition-colors">IoT Smart Irrigation System</h2>
-        <p class="text-sm mt-1 text-[var(--accent-primary)]"><i class="fas fa-user mr-1"></i>Solo Project</p>
-        <p class="text-xs text-white/70 leading-relaxed mt-2">
-          Mobile application prototype for remote soil monitoring and irrigation control. 
-          Integrated sensor data visualization and user-friendly controls to optimize water usage for agriculture.
-          Designed user interface and implemented core features using MIT App Inventor.
-        </p>
-        <div class="flex flex-wrap gap-2 mt-4 text-purple-400 items-center">
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">MIT App Inventor</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">IoT</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">Arduino</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">Firebase</span>
-        </div>
-      </div>
-
-      <div onclick="openProject('bastorage')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_var(--accent-primary)] transition-all group">
-        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">     
-          <img src="src/bastorage-gallery.jpg" alt="Bastorage" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
-        </div>
-        <h2 class="text-2xl text-white uppercase group-hover:text-[var(--accent-primary)] transition-colors">Bastorage: Laboratory Inventory System</h2>
-        <p class="text-sm mt-1 text-[var(--accent-primary)]"><i class="fas fa-users mr-1"></i>Group Project</p>
-        <p class="text-xs text-white/70 leading-relaxed mt-2">
-          A full-stack web application for managing laboratory inventory and equipment.
-          Features a real-time Firebase backend for data storage and synchronization, allowing users to track inventory levels, manage equipment checkouts, and generate reports.
-        </p>
-        <div class="flex flex-wrap gap-2 mt-4 text-purple-400">
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">HTML</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">CSS</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">JavaScript</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">Firebase</span>
+      <!-- EDUCATION Column -->
+      <div>
+        <h3 class="font-mono text-secondary mb-8 uppercase tracking-widest">// EDUCATION</h3>
+        <div class="relative pl-8 ml-4 border-l border-white/10">
+          <div class="relative mb-12">
+            <div class="absolute -left-10 top-2 w-4 h-4 rounded-full bg-secondary glow-cyan border-4 border-background"></div>
+            <div class="glass p-8 rounded-xl border border-white/5">
+              <span class="text-primary font-mono text-xs mb-2 block uppercase">2021 - 2026</span>
+              <h4 class="font-anton text-2xl text-white mb-1">San Sebastian College - Recoletos de Cavite</h4>
+              <p class="text-secondary font-mono text-sm uppercase mb-4">Bachelor of Science in Computer Engineering</p>
+              <p class="text-on-surface-variant text-sm opacity-80">Consistently recognized as a Dean's Lister. Deep specialization in hardware integration and high-level software architectures.</p>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-10 top-2 w-4 h-4 rounded-full bg-secondary/50 border-4 border-background"></div>
+            <div class="glass p-8 rounded-xl border border-white/5">
+              <span class="text-primary font-mono text-xs mb-2 block uppercase">2019 - 2021</span>
+              <h4 class="font-anton text-2xl text-white mb-1">STI College - Cavite</h4>
+              <p class="text-secondary font-mono text-sm uppercase mb-4">Information and Communication Technology (ICT)</p>
+              <p class="text-on-surface-variant text-sm opacity-80">Graduated with High Honors. Foundation in web and app development, programming logic, and digital literacy.</p>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div onclick="openProject('plugwise')" class="bg-[#121212]/80 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-[0_2px_5px_var(--accent-primary)] transition-all group">
-        <div class="overflow-hidden rounded-lg mb-8 border border-white/5">        
-          <img src="src/plugwise.jpg" alt="Pluwise" class="h-50 w-full object-cover group-hover:scale-110 transition duration-500">
-        </div>
-        <h2 class="text-2xl text-white uppercase group-hover:text-[var(--accent-primary)] transition-colors">Plugwise: IoT Smart Outlet</h2>
-        <p class="text-sm mt-1 text-[var(--accent-primary)]"><i class="fas fa-users mr-1"></i>Group Project</p>
-        <p class="text-xs text-white/70 leading-relaxed mt-2">
-          IoT-enabled smart outlet simulation system that allows users to control the power for multiple sockets—either manually or automatically (timed)—and monitor outlet status (active/inactive)
-        </p>
-        <div class="flex flex-wrap gap-2 mt-4 text-purple-400">
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">HTML</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">JavaScript</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">Firebase</span>
-          <span class="anton bg-purple-500/30 text-sm px-4 py-1 border border-purple-400 rounded-lg">IoT</span>
-        </div>
       </div>
+    </div>
+  </section>
 
+<!-- Projects Section -->
+  <section class="py-section-padding" id="projects">
+    <div class="max-w-container-max mx-auto px-gutter mb-16">
+      <h2 class="font-anton text-5xl mb-4 tracking-widest text-white uppercase text-center">ACADEMIC_PROJECTS</h2>
+      <p class="text-on-surface-variant font-mono text-sm opacity-60 text-center">Visualizing system outputs...</p>
     </div>
 
+    <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+    <!-- Project 1: Lumina Alert -->
+      <div class="glass rounded-2xl overflow-hidden group border border-white/5 hover:border-primary/50 transition-all duration-500 cursor-pointer" onclick="openProject('lumina')">
+        <div class="h-64 relative overflow-hidden bg-surface-container-highest">
+          <img alt="Lumina Alert" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" src="src/lumina-welcome.jpg"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+          <div class="absolute bottom-4 left-6 flex gap-2">
+            <span class="px-3 py-1 bg-primary text-white text-[10px] font-anton tracking-widest rounded uppercase">HTML</span>
+            <span class="px-3 py-1 bg-secondary text-background text-[10px] font-anton tracking-widest rounded uppercase">CSS</span>
+          </div>
+        </div>
+        <div class="p-8">
+          <h3 class="font-anton text-2xl mb-3 text-white tracking-wider">Lumina Alert</h3>
+          <p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Developed a responsive website for Lumina Alert using HTML, CSS, and JavaScript. Allows admins/operators to register their contact information.</p>
+          <span class="text-secondary font-mono text-xs flex items-center gap-2 group-hover:gap-4 transition-all uppercase">ACCESS_MODULE <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+        </div>
+      </div>
+    <!-- Project 2: IoT Smart Irrigation System -->
+      <div class="glass rounded-2xl overflow-hidden group border border-white/5 hover:border-primary/50 transition-all duration-500 cursor-pointer" onclick="openProject('irrigation')">
+        <div class="h-64 relative overflow-hidden bg-surface-container-highest">
+          <img alt="IoT Smart Irrigation System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" src="src/iot.jpg"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-6 flex gap-2">
+              <span class="px-3 py-1 bg-primary text-white text-[10px] font-anton tracking-widest rounded uppercase">IOT</span>
+              <span class="px-3 py-1 bg-secondary text-background text-[10px] font-anton tracking-widest rounded uppercase">ARDUINO</span>
+            </div>
+        </div>
+        <div class="p-8">
+          <h3 class="font-anton text-2xl mb-3 text-white tracking-wider">IoT Smart Irrigation System</h3>
+          <p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Mobile application prototype for remote soil monitoring and irrigation control. Optimized water usage for agriculture.</p>
+          <span class="text-secondary font-mono text-xs flex items-center gap-2 group-hover:gap-4 transition-all uppercase">ACCESS_MODULE <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+        </div>
+      </div>
+    <!-- Project 3: Bastorage -->
+      <div class="glass rounded-2xl overflow-hidden group border border-white/5 hover:border-primary/50 transition-all duration-500 cursor-pointer" onclick="openProject('bastorage')">
+        <div class="h-64 relative overflow-hidden bg-surface-container-highest">
+          <img alt="Bastorage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" src="src/bastorage-gallery.jpg"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-6 flex gap-2">
+              <span class="px-3 py-1 bg-primary text-white text-[10px] font-anton tracking-widest rounded uppercase">FIREBASE</span>
+              <span class="px-3 py-1 bg-secondary text-background text-[10px] font-anton tracking-widest rounded uppercase">JS</span>
+            </div>
+        </div>
+        <div class="p-8">
+          <h3 class="font-anton text-2xl mb-3 text-white tracking-wider">Bastorage</h3>
+          <p class="text-on-surface-variant mb-6 text-sm leading-relaxed">A full-stack web application for managing laboratory inventory and equipment with real-time Firebase backend.</p>
+          <span class="text-secondary font-mono text-xs flex items-center gap-2 group-hover:gap-4 transition-all uppercase">ACCESS_MODULE <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+        </div>
+      </div>
+    <!-- Project 4: Plugwise -->
+      <div class="glass rounded-2xl overflow-hidden group border border-white/5 hover:border-primary/50 transition-all duration-500 cursor-pointer" onclick="openProject('plugwise')">
+        <div class="h-64 relative overflow-hidden bg-surface-container-highest">
+          <img alt="Plugwise" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" src="src/plugwise.jpg"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-6 flex gap-2">
+              <span class="px-3 py-1 bg-primary text-white text-[10px] font-anton tracking-widest rounded uppercase">IOT</span>
+              <span class="px-3 py-1 bg-secondary text-background text-[10px] font-anton tracking-widest rounded uppercase">JS</span>
+            </div>
+        </div>
+        <div class="p-8">
+          <h3 class="font-anton text-2xl mb-3 text-white tracking-wider">Plugwise</h3>
+          <p class="text-on-surface-variant mb-6 text-sm leading-relaxed">IoT-enabled smart outlet system that allows users to control power for multiple sockets and monitor status.</p>
+          <span class="text-secondary font-mono text-xs flex items-center gap-2 group-hover:gap-4 transition-all uppercase">ACCESS_MODULE <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!--  DIVIDER -->
   <div class="flex items-center gap-4 mx-auto max-w-7xl px-6 py-10 opacity-50">
-    <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[var(--accent-primary)] to-transparent"></div>
-    <div class="text-[10px] font-mono text-[var(--accent-light)] tracking-[0.5em]"> SECTION END </div>
-    <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[var(--accent-primary)] to-transparent"></div>
+    <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#8528D9] to-transparent"></div>
+    <div class="text-[10px] font-mono text-[#C77DFF] tracking-[0.5em]"> SECTION END </div>
+    <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#8528D9] to-transparent"></div>
   </div>
 
   <!-- ============ CONTACT SECTION ============= -->
   <section id="contact" class="mx-auto max-w-5xl px-6 py-20 gap-10 flex flex-col lg:flex-row items-center reveal">
     <div class="lg:w-1/2 w-full">
-      <h1 class="anton text-[40px] md:text-[80px] text-[var(--accent-primary)] uppercase leading-none tracking-tighter">CONTACT <br>ME</h1>
+      <h1 class="font-anton text-[40px] md:text-[80px] text-[var(--accent-primary)] uppercase leading-none tracking-tighter">CONTACT <br>ME</h1>
     </div>
 
     <div class="lg:w-1/2 w-full space-y-4">
-      <div class="group border-b border-white/30 pb-4 flex justify-between items-center hover:border-[var(--accent-primary)] transition-all">
+      <div class="group border-b border-white/30 pb-4 flex justify-between items-center hover:border-primary/50 transition-all">
         <span class="uppercase text-xs text-white/40 tracking-widest">Email</span>
-        <a href="mailto:jtrishiaj05@gmail.com" class="anton text-md md:text-lg text-white hover:text-[var(--accent-light)] transition-colors">jtrishiaj05@gmail.com</a>
+        <a href="mailto:jtrishiaj05@gmail.com" class="font-anton text-md md:text-lg text-white hover:text-[var(--accent-light)] transition-colors">jtrishiaj05@gmail.com</a>
       </div>
-      <div class="group border-b border-white/30 pb-4 flex justify-between items-center hover:border-[var(--accent-primary)] transition-all">
+      <div class="group border-b border-white/30 pb-4 flex justify-between items-center hover:border-primary/50 transition-all">
         <span class="uppercase text-xs text-white/40 tracking-widest">LinkedIn</span>
-        <a href="https://www.linkedin.com/in/trishia-javier-55761939b/" target="_blank" class="anton text-md md:text-lg text-white hover:text-[var(--accent-light)] transition-colors">LinkedIn Profile</a>
+        <a href="https://www.linkedin.com/in/trishia-javier-55761939b/" target="_blank" class="font-anton text-md md:text-lg text-white hover:text-[var(--accent-light)] transition-colors">LinkedIn Profile</a>
       </div>
-      <div class="group border-b border-white/30 pb-4 flex justify-between items-center hover:border-[var(--accent-primary)] transition-all"
+      <div class="group border-b border-white/30 pb-4 flex justify-between items-center hover:border-primary/50 transition-all"
             onclick="copytoClipboard('+63 921 723 9974')">
         <span class="uppercase text-xs text-white/40 tracking-widest">Mobile Number</span>
-        <p class="anton text-md md:text-lg text-white hover:text-[var(--accent-light)] transition-colors"> 
+        <p class="font-anton text-md md:text-lg text-white hover:text-[var(--accent-light)] transition-colors"> 
             (+63) 921 723 9974
         </p>
       </div>
     </div>
   </section>
-  
+
   <!-- FOOTER -->
-  <footer class="text-center py-8 border-t border-white/10 px-6">
-    <p class="text-xs text-white/20 tracking-widest uppercase">
+  <footer class="text-center py-8 border-t border-white/5 px-6">
+    <p class="text-on-surface-variant font-mono text-[10px] opacity-40 uppercase">
       2026 © TIJEY.
     </p>
   </footer>
 
+</div>
 
-
-</body>
-
-<!-- ============== PROJECT MODAL =================== -->
-  <div id="proj-modal" class="hidden fixed inset-0 z-[2000] p-4 md:p-10 bg-black/70 backdrop-blur-lg flex items-center justify-center">
-    <div class="bg-[var(--bg-card)]/80 border border-white/10 rounded-lg w-full max-w-5xl max-h-[80vh] overflow-y-auto relative">
-      <!-- Modal Header -->
-      <div class="flex justify-between items-center z-10 bg-[var(--bg-surface)] border-b border-white/10 p-4">
-        <div class="flex gap-2">
-          <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-          <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-          <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+<!-- Project Modal -->
+  <div class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/95 backdrop-blur-md hidden" id="proj-modal">
+    <div class="glass max-w-5xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-white/20 glow-purple flex flex-col">
+      <!-- Header -->
+      <div class="sticky top-0 bg-background/50 backdrop-blur-xl p-6 border-b border-white/10 flex justify-between items-center z-10">
+        <div class="flex items-center gap-4">
+          <div class="flex gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+          </div>
+          <span class="font-mono text-xs text-white/40 tracking-widest uppercase">Project_Details.EXE</span>
         </div>
-        <span class="anton uppercase tracking-widest text-sm text-white/50">Project_Details.EXE</span>
-        <button onclick="closeModal()" id="close-modal" class="cursor-pointer text-white/50 hover:text-white transition text-xl">&times;</button>
+        <button class="material-symbols-outlined text-2xl hover:text-primary transition-colors text-white/50" onclick="closeModal()">close</button>
       </div>
 
-      <!-- Modal Body -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 md:p-10">
-        <!-- Left Column: Image Gallery -->
-        <div class="space-y-6">
-          <div class="flex items-center gap-4">
-            <a href="" target="_blank" id="proj-gitLink" class="w-3 h-3 rounded-full shadow-[0_3px_5px_#757575] flex items-center justify-center text-white text-xs
-                  hover:scale-110 hover:text-purple-300 transition duration-300">
-                  <i class="fa-brands fa-github text-xl"></i></a>
-            <a href="" target="_blank" id="proj-liveLink" class="w-auto h-2 rounded-full shadow-[0_3px_5px_#757575] flex items-center justify-center anton text-white text-[8px] 
-                  p-3 pr-8 pl-8 hover:scale-110 hover:text-purple-300 transition duration-300">
-                  LIVE VIEW<i class="fa-solid fa-arrow-up-right-from-square ml-2 text-[8px]"></i></a>
-          </div>
-          <img id="modal-mainImage" src="" alt="Project Image" class="w-full h-auto object-cover rounded-lg border border-[#D9D9D9] aspect-video">
-          <div id="modal-otherImages" class="grid grid-cols-4 gap-2">
-            <img src="" alt="" class="h-16 rounded-md border border-white/50">
-            <img src="" alt="" class="h-16 rounded-md border border-white/50">
-            <img src="" alt="" class="h-16 rounded-md border border-white/50">
-            <img src="" alt="" class="h-16 rounded-md border border-white/50">
-          </div>
+    <!-- Body -->
+    <div class="p-8 grid lg:grid-cols-12 gap-10">
+    <!-- Left Column -->
+      <div class="lg:col-span-5 space-y-8">
+        <div class="rounded-xl overflow-hidden border border-white/10 aspect-video bg-surface-container-highest group relative">
+          <div class="scanline opacity-10"></div>
+          <img alt="Project Main" class="w-full h-full object-cover opacity-80" id="modal-mainImage" src=""/>
         </div>
-
-        <!-- Right Column: Project Details -->
-         <div class="space-y-6">
+        <div class="grid grid-cols-4 gap-3" id="modal-otherImages">
+        <!-- Thumbnails injected via JS -->
+        </div>
+        <div class="flex gap-4 pt-4">
+          <a class="flex-1 flex items-center justify-center gap-2 py-4 bg-white/5 border border-white/10 text-white font-anton tracking-widest hover:bg-white/10 transition-all uppercase text-sm" id="modal-gitLink" target="_blank">
+            <span class="material-symbols-outlined text-lg text-primary">code</span> GITHUB
+          </a>
+          <a class="flex-1 flex items-center justify-center gap-2 py-4 bg-primary text-white font-anton tracking-widest hover:brightness-110 transition-all uppercase text-sm shadow-lg shadow-primary/20" id="modal-liveLink" target="_blank">
+            <span class="material-symbols-outlined text-lg">rocket_launch</span> LIVE_SYS
+          </a>
+        </div>
+      </div>
+    <!-- Right Column -->
+      <div class="lg:col-span-7 flex flex-col">
+        <div class="mb-8">
+          <h3 class="font-anton text-4xl text-white tracking-wider uppercase mb-2" id="modal-projTitle">Project Title</h3>
+          <p class="font-mono text-sm text-primary uppercase" id="modal-role">// Role Name</p>
+        </div>
+        <div class="space-y-8">
           <div>
-            <h2 id="modal-projTitle" class="anton uppercase text-3xl text-[var(--accent-primary)] tracking-tigher">project title</h2>
-            <p id="modal-role" class="text-green-500 text-xs font-mono mt-2">ROLE: Developer</p>
+            <h4 class="font-anton text-lg text-secondary mb-3 tracking-widest uppercase flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">info</span> System_Overview
+            </h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed font-body-md font-mono" id="modal-desc">
+              Project description text goes here.
+            </p>
           </div>
-
-          <div class="space-y-2">
-            <h3 class="anton uppercase tracking-widest border-l-4 pl-2 border-[var(--accent-primary)]">OVERVIEW</h3>
-            <p id="modal-desc" class="text-xs text-white/70 leading-relaxed">Detailed desc here .... </p>
-          </div>
-
-          <div class="space-y-2">
-            <h3 class="anton uppercase tracking-widest border-l-4 pl-2 border-[var(--accent-primary)]">CONTRIBUTIONS</h3>
-            <ul id="modal-contrib" class="text-xs text-white/70 list-disc list-inside space-y-1">
-              <li> Developed responsive UI components using React</li>
-              <li> Implemented RESTful APIs for data fetching</li>
-              <li> Collaborated with designers to create intuitive user experiences</li>
+          <div>
+            <h4 class="font-anton text-lg text-primary mb-3 tracking-widest uppercase flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">task_alt</span> Key_Contributions
+            </h4>
+            <ul class="space-y-2 text-on-surface-variant text-sm font-mono list-none" id="modal-contrib">
+            <!-- Contributions injected via JS -->
             </ul>
           </div>
-
-          <div id="modal-tags" class="flex flex-wrap gap-2 pt-4 text-xs">
+          <div>
+            <h4 class="font-anton text-lg text-white/60 mb-3 tracking-widest uppercase flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">terminal</span> Dependencies
+            </h4>
+            <div class="flex flex-wrap gap-2" id="modal-tags">
+            <!-- Tags dynamic -->
+            </div>
           </div>
         </div>
-
       </div>
+    </div>
     </div>
   </div>
 
+
+</body>
 </html>
